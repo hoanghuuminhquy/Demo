@@ -1,0 +1,11 @@
+﻿
+
+<a href="@Url.Action("XemGioHang","GioHang")" id="giohang">
+    <i class="fa fa-shopping-basket"></i>
+    <span class="item-cart">@ViewBag.TongSoLuong</span>
+</a>
+@if (ViewBag.TongSoLuong > 0)
+{
+    <p class="giohang">@ViewBag.TongTien.ToString("#,##") VNĐ</p>
+}
+

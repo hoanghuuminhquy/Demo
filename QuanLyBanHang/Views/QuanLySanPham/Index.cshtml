@@ -1,0 +1,150 @@
+﻿@model IEnumerable<QuanLyBanHang.Models.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutQuanLyBanHang.cshtml";
+    int i = 1;
+}
+@*@section scripts{
+
+
+    }*@
+
+
+<!-- start: page -->
+<section class="card">
+    <header class="card-header">
+        <div class="card-actions">
+            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+        </div>
+
+        <h2 class="card-title">Default</h2>
+    </header>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <a href="/QuanLySanPham/TaoMoi" class="btn btn-primary">Add <i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-striped mb-0" id="datatable-editable">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TenSP)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DonGia)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NgayCapNhap)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CauHinh)
+                    </th>
+                    @*<th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.HinhAnh)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SoLuongTon)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoaiSanPham.TenLoai)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NhaCungCap.TenNCC)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NhaSanXuat.TenNSX)
+                    </th>
+                    <th>
+                        Chỉnh sửa
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr data-item-id="1" class="d-none">
+                    <td>Trident</td>
+                    <td>
+                        Internet
+                        Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td class="actions">
+                        <a href="#" class="hidden on-editing save-row"><i class="fas fa-save"></i></a>
+                        <a href="#" class="hidden on-editing cancel-row"><i class="fas fa-times"></i></a>
+                        <a href="#" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="#" class="on-default remove-row"><i class="far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+              
+
+                @foreach (var item in Model)
+                {
+                    i = i + 1;
+
+                    <tr data-item-id="@i">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenSP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DonGia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NgayCapNhap)
+                        </td>
+                        <td>
+                            @Html.Raw(item.CauHinh)
+                        </td>
+                        <td>
+                            <img src="../Content/HinhAnhSP/@Html.DisplayFor(modelItem => item.HinhAnh)" style="height:100px;width:150px">
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SoLuongTon)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoaiSanPham.TenLoai)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NhaCungCap.TenNCC)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NhaSanXuat.TenNSX)
+                        </td>
+                        @*<td>
+                        @{var cat = item.MoTa.ToString();}
+
+                @Html.Raw(cat.Substring(0, 150))
+
+
+                    </td>*@
+
+
+                    <td class="actions">
+                        @*<a href="#" class="hidden on-editing save-row"><i class="fas fa-save"></i></a>
+                        <a href="#" class="hidden on-editing cancel-row"><i class="fas fa-times"></i></a>*@
+
+                       <i class="fas fa-pencil-alt"></i>
+                        @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { id = item.MaSP })
+                        <i class="far fa-trash-alt"></i>
+                        @Html.ActionLink("Xoá", "Xoa", new { id = item.MaSP })
+                    </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+<!-- end: page -->
+@*<td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MaSP }) |
+        @Html.ActionLink("Details", "Details", new { id = item.MaSP }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.MaSP })
+    </td>*@

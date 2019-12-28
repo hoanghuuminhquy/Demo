@@ -1,0 +1,1836 @@
+﻿@model IEnumerable<QuanLyBanHang.Models.SanPham>
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_ShopBanHang.cshtml";
+}
+
+<div class="col-sm-12">
+    <div class="row">
+        <div id="content" class="col-sm-12">
+            <div class="main-row slider-group">
+                <div class="container">
+                    <div class="row">
+                        <div class="main-col col-sm-12 col-md-12">
+                            <div class="row sub-row">
+                                <div class="sub-col col-sm-6">
+                                    <link rel="stylesheet" href="/Content/catalog/view/javascript/bxslider/jquery.bxslider.min.css">
+                                    <script src="/Content/catalog/view/javascript/bxslider/jquery.bxslider.min.js"></script>
+
+                                    <div class="slider0">
+                                        <div><a href="#"><img src="/Content/image/cache/catalog/Slide/slider1-bigone1%20(1)-580x645.jpg" alt="" class="img-responsive" style="width: 100%;" /></a></div>
+                                        <div><a href="#"><img src="/Content/image/cache/catalog/Slide/slider2-bigone1%20(1)-580x645.jpg" alt="" class="img-responsive" style="width: 100%;" /></a></div>
+                                    </div>
+
+                                    <script>
+                                        $('.slider0').bxSlider({
+                                            /* Tu dong chuyen anh */
+                                            auto: true,
+
+                                            /* Hieu ung chuyen anh: 'horizontal', 'vertical', 'fade' */
+                                            mode: 'fade',
+
+                                            /* Toc do chuyen giua cac anh: (ms) */
+                                            speed: 400,
+
+                                            /* Ho tro hien thi da man hinh */
+                                            responsive: true,
+
+                                            /* Thoi gian hien thi 1 anh (ms) */
+                                            pause: 5000,
+
+                                            /* Cac cham dai dien anh: o o o */
+                                            pager: true,
+
+                                            /* Mui ten next va prev */
+                                            controls: true,
+                                        });</script>
+                                </div>
+                                <div class="sub-col col-md-6 col-sm-6">
+                                    <div class="bestseller-products-slider module-nav2 box-module module-style2 product-slider-41447621239">
+                                        <div class="group-title"><h2>Camera</h2></div>
+                                        <div class="owl-container">
+                                            <div class="bestseller_products_slider">
+                                                <div class="row_items">
+                                                    @foreach (var item in Model.Where(n => n.MaLoaiSP == 1).Take(4))
+                                                    {
+                                                        <div class="item col-sm-6">
+
+                                                            <div class="item-inner">
+                                                                <div class="images-container">
+                                                                    <div class="label-pro-sale">
+                                                                        <span>-40%</span>
+                                                                    </div>
+
+                                                                    <a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                        <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                    </a>
+
+                                                                </div>
+                                                                <div class="des-container">
+                                                                    <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating5">rating</div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="price-box box-special">
+                                                                        <p class="special-price"><span class="price">@item.DonGia đ</span></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    }
+
+                                                </div>
+                                                <div class="row_items">
+                                                    @foreach (var item in Model.Where(n => n.MaLoaiSP == 2).Take(4))
+                                                    {
+                                                        <div class="item col-sm-6">
+
+                                                            <div class="item-inner">
+                                                                <div class="images-container">
+                                                                    <div class="label-pro-sale">
+                                                                        <span>-40%</span>
+                                                                    </div>
+
+                                                                    <a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                        <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                    </a>
+
+                                                                </div>
+                                                                <div class="des-container">
+                                                                    <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating5">rating</div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="price-box box-special">
+                                                                        <p class="special-price"><span class="price">@item.DonGia đ</span></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $(".product-slider-41447621239 .bestseller_products_slider").owlCarousel({
+                                                autoPlay: false,
+                                                items: '2',
+                                                itemsDesktop: [1199, 3],
+                                                itemsDesktopSmall: [991, 2],
+                                                itemsTablet: [767, 2],
+                                                itemsMobile: [479, 1],
+                                                slideSpeed: 1000,
+                                                navigation: true,
+                                                paginationNumbers: true,
+                                                pagination: false,
+                                                stopOnHover: false,
+                                                addClassActive: true,
+                                                scrollPerPage: false,
+                                                afterAction: function () {
+                                                    $(".product-slider-41447621239 .bestseller_products_slider .owl-wrapper .owl-item").removeClass('first');
+                                                    $(".product-slider-41447621239 .bestseller_products_slider .owl-wrapper .owl-item").removeClass('last');
+                                                    $(".product-slider-41447621239 .bestseller_products_slider .owl-wrapper .owl-item").removeClass('before-active');
+                                                    $(".product-slider-41447621239 .bestseller_products_slider .owl-wrapper .owl-item.active:first").addClass('first');
+                                                    $(".product-slider-41447621239 .bestseller_products_slider .owl-wrapper .owl-item.active:last").addClass('last');
+                                                    $('.product-slider-41447621239 .bestseller_products_slider .owl-wrapper .owl-item.active:first').prev().addClass('before-active');
+                                                }
+                                            });
+                                            $(".product-slider-41447621239 .bestseller_products_slider .item").removeClass('col-sm-6');
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-row">
+                <div class="container">
+                    <div class="row">
+                        <div class="main-col col-sm-12 col-md-12">
+                            <div class="row sub-row">
+                                <div class="sub-col col-sm-4">
+                                    <div class="banner-static static-top-bigone1">
+                                        <div class="owl-container">
+                                            <div id="static_top_bigone1939573468">
+                                                <div class="col ">
+                                                    <div class="image">
+                                                        <a href="javascript:void(0)" target="_self">
+                                                            <img src="/Content/image/cache/catalog/banner/img1-top-bigone1-370x202.jpg" alt="Accessories, Cable charger">
+                                                            <span class="text">
+                                                                <span class="text1">Accessories, Cable charger</span>
+                                                                <span class="text2"><p>Sale up to <strong>30% off</strong></p></span>
+                                                                <span class="text3"><strong></strong></span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><div class="sub-col col-sm-4">
+                                    <div class="banner-static static-top-bigone1">
+                                        <div class="owl-container">
+                                            <div id="static_top_bigone2106941245">
+                                                <div class="col ">
+                                                    <div class="image">
+                                                        <a href="javascript:void(0)" target="_self">
+                                                            <img src="/Content/image/cache/catalog/banner/img2-top-bigone1-370x202.jpg" alt="Smartphone, Electronic">
+                                                            <span class="text">
+                                                                <span class="text1">Smartphone, Electronic</span>
+                                                                <span class="text2"><p>Sale up to <strong>30% off</strong></p></span>
+                                                                <span class="text3"><strong></strong></span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><div class="sub-col col-sm-4">
+                                    <div class="banner-static static-top-bigone1">
+                                        <div class="owl-container">
+                                            <div id="static_top_bigone2139467036">
+                                                <div class="col ">
+                                                    <div class="image">
+                                                        <a href="javascript:void(0)" target="_self">
+                                                            <img src="/Content/image/cache/catalog/banner/img3-top-bigone1-370x202.jpg" alt="Your Guide to Lengthening">
+                                                            <span class="text">
+                                                                <span class="text1">Your Guide to Lengthening</span>
+                                                                <span class="text2"><p>Sale up to <strong>30% off</strong></p></span>
+                                                                <span class="text3"><strong></strong></span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-row">
+                <div class="container">
+                    <div class="row">
+                        <div class="main-col col-sm-12 col-md-12">
+                            <div class="row sub-row">
+
+                                <div class="sub-col col-sm-12">
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $(".tabs-products-4814316759 .tab_content_category").hide();
+                                            $(".tabs-products-4814316759 .tab_content_category:first").show();
+                                            $(".tabs-products-4814316759 ul.tabs-categorys li:first").addClass("active");
+
+                                            $(".tabs-products-4814316759 ul.tabs-categorys li").click(function () {
+                                                $(".tabs-products-4814316759 ul.tabs-categorys li").removeClass("active");
+                                                $(this).addClass("active");
+                                                $(".tabs-products-4814316759 .tab_content_category").hide();
+                                                $(".tabs-products-4814316759 .tab_content_category").removeClass("animate1 wiggle");
+                                                var activeTab = $(this).attr("rel");
+                                                $("#" + activeTab).addClass("animate1 wiggle");
+                                                $("#" + activeTab).fadeIn();
+                                            });
+                                        });
+                                    </script>
+                                    <div class="product-tabs-category-container-slider special-button-owl tabs-products-4814316759 quickview-add module-nav2 box-module module-style1">
+                                        <div class="tab-title group-title">
+                                            <h2>Máy tình và laptop</h2>
+                                            <ul class="tabs-categorys">
+                                                <li rel="tab_cate48143167590">
+                                                    Camera
+                                                </li>
+                                                <li rel="tab_cate48143167591">
+                                                    Tay cầm chơi game
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="owl-container">
+                                            <div class="tab_container_category">
+                                                <div id="tab_cate48143167590" class="tab_content_category">
+                                                    <ul class="productTabContent owl-demo-tabcate">
+                                                        @foreach (var item in Model.Where(n => n.MaLoaiSP == 3).Take(8))
+                                                        {
+                                                            <li class='row_items'>
+                                                                <div class='product-thumb'>
+
+                                                                    <div class="item col-sm-20">
+                                                                        <div class="item-inner">
+                                                                            <div class="label-pro-sale">
+                                                                                <span>-40%</span>
+                                                                            </div>
+                                                                            <div class="images-container">
+                                                                                <a class="product-image" href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                                    <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                                </a>
+                                                                                <div class="quick-view"></div>
+                                                                            </div><!--images-container-->
+                                                                            <div class="des-container">
+                                                                                <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                                <div class="ratings">
+                                                                                    <div class="rating-box">
+                                                                                        <div class="rating5">rating</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="actions">
+                                                                                    <a href="@Url.Action("ThemGioHang","GioHang",new { @MaSP = item.MaSP, @strURL = Request.Url.ToString()})" class="button btn-cart"  title="Thêm vào giỏ">
+                                                                                        <span><span>Thêm vào giỏ</span></span>
+                                                                                    </a>
+                                                                                    <ul class="add-to-links">
+                                                                                        <li class="icon-cart">
+                                                                                            <a class="link-cart fa fa-shopping-basket" title="Thêm vào giỏ" data-toggle="tooltip" onclick="cart.add('60');">
+                                                                                                <em>Thêm vào giỏ</em>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a class="link-wishlist fa fa-heart" title="Thêm vào yêu thích" data-toggle="tooltip" onclick="wishlist.add('60');">
+                                                                                                <em>Thêm vào yêu thích</em>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a class="link-compare fa fa-signal" title="So sánh sản phẩm" data-toggle="tooltip" onclick="compare.add('60');">
+                                                                                                <em>So sánh sản phẩm</em>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div><!-- actions -->
+                                                                                <div class="price-box box-special">
+                                                                                    <p class="special-price"><span class="price">@item.DonGia</span></p>
+                                                                                    <p class="old-price"><span class="price">100,000đ</span></p>
+                                                                                </div>
+                                                                            </div><!--des-container-->
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </li>
+                                                        }
+
+                                                    </ul>
+                                                </div>
+                                                <div id="tab_cate48143167591" class="tab_content_category">
+                                                    <ul class="productTabContent owl-demo-tabcate">
+                                                        @foreach (var item in Model.Where(n => n.MaLoaiSP == 2).OrderByDescending(n => n.TenSP).Take(8))
+                                                        {
+                                                            <li class='row_items'>
+                                                                <div class='product-thumb'>
+
+                                                                    <div class="item col-sm-20">
+                                                                        <div class="item-inner">
+                                                                            <div class="label-pro-sale">
+                                                                                <span>-40%</span>
+                                                                            </div>
+                                                                            <div class="images-container">
+                                                                                <a class="product-image" href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                                    <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                                </a>
+                                                                                <div class="quick-view"></div>
+                                                                            </div><!--images-container-->
+                                                                            <div class="des-container">
+                                                                                <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                                <div class="ratings">
+                                                                                    <div class="rating-box">
+                                                                                        <div class="rating5">rating</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="actions">
+                                                                                    <a href="@Url.Action("ThemGioHang","GioHang",new { @MaSP = item.MaSP, @strURL = Request.Url.ToString()})" class="button btn-cart" title="Thêm vào giỏ">
+                                                                                        <span><span>Thêm vào giỏ</span></span>
+                                                                                    </a>
+                                                                                    <ul class="add-to-links">
+                                                                                        <li class="icon-cart">
+                                                                                            <a class="link-cart fa fa-shopping-basket" title="Thêm vào giỏ" data-toggle="tooltip" onclick="cart.add('60');">
+                                                                                                <em>Thêm vào giỏ</em>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a class="link-wishlist fa fa-heart" title="Thêm vào yêu thích" data-toggle="tooltip" onclick="wishlist.add('60');">
+                                                                                                <em>Thêm vào yêu thích</em>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a class="link-compare fa fa-signal" title="So sánh sản phẩm" data-toggle="tooltip" onclick="compare.add('60');">
+                                                                                                <em>So sánh sản phẩm</em>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div><!-- actions -->
+                                                                                <div class="price-box box-special">
+                                                                                    <p class="special-price"><span class="price">60,000đ</span></p>
+                                                                                    <p class="old-price"><span class="price">@item.DonGia đ</span></p>
+                                                                                </div>
+                                                                            </div><!--des-container-->
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </li>
+
+                                                        }
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $(".tabs-products-4814316759 .owl-demo-tabcate").owlCarousel({
+                                                autoPlay: false,
+                                                items: '5',
+                                                slideSpeed: 1000,
+                                                navigation: true,
+                                                paginationNumbers: true,
+                                                pagination: false,
+                                                stopOnHover: false,
+                                                itemsDesktop: [1199, 3],
+                                                itemsDesktopSmall: [991, 2],
+                                                itemsTablet: [767, 2],
+                                                itemsMobile: [479, 2],
+                                                addClassActive: true,
+                                                scrollPerPage: false,
+                                                afterAction: function () {
+                                                    $(".tabs-products-4814316759 .owl-demo-tabcate .owl-wrapper .owl-item").removeClass('first');
+                                                    $(".tabs-products-4814316759 .owl-demo-tabcate .owl-wrapper .owl-item").removeClass('last');
+                                                    $(".tabs-products-4814316759 .owl-demo-tabcate .owl-wrapper .owl-item").removeClass('before-active');
+                                                    $(".tabs-products-4814316759 .owl-demo-tabcate .owl-wrapper .owl-item.active:first").addClass('first');
+                                                    $(".tabs-products-4814316759 .owl-demo-tabcate .owl-wrapper .owl-item.active:last").addClass('last');
+                                                    $('.tabs-products-4814316759 .owl-demo-tabcate .owl-wrapper .owl-item.active:first').prev().addClass('before-active');
+                                                }
+                                            });
+                                            $(".tabs-products-4814316759 .item").removeClass('col-sm-20');
+                                        });
+                                    </script>
+                                </div>
+                                <div class="sub-col col-sm-6">
+                                    <div class="banner-static static-top-bigone1">
+                                        <div class="owl-container">
+                                            <div id="static_top_bigone2072320383">
+                                                <div class="col ">
+                                                    <div class="image">
+                                                        <a href="#" target="_self">
+                                                            <img src="/Content/image/cache/catalog/banner/img1-middle-bigone1-570x202.jpg" alt="Floating Style TV">
+                                                            <span class="text">
+                                                                <span class="text1">Floating Style TV</span>
+                                                                <span class="text2"><p><strong>Samsung</strong> 55 Inch Curved 4K</p></span>
+                                                                <span class="text3"><strong>Quantum dot display The SUHD TV</strong></span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><div class="sub-col col-sm-6">
+                                    <div class="banner-static static-top-bigone1">
+                                        <div class="owl-container">
+                                            <div id="static_top_bigone1103204931">
+                                                <div class="col ">
+                                                    <div class="image">
+                                                        <a href="#" target="_self">
+                                                            <img src="/Content/image/cache/catalog/banner/img2-middle-bigone1-570x202.jpg" alt="Dell Vostro">
+                                                            <span class="text">
+                                                                <span class="text1">Dell Vostro</span>
+                                                                <span class="text2"><p>Laptop <strong>Dell</strong> Inspiron</p></span>
+                                                                <span class="text3"><strong>Quantum dot display The SUHD TV</strong></span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-row">
+                <div class="container">
+                    <div class="row">
+                        <div class="main-col col-sm-12 col-md-12">
+                            <div class="row sub-row">
+
+                                <div class="sub-col col-md-4 col-sm-12">
+                                    <div class="occountdown_module module-nav2 box-module deals-products-2913421890">
+                                        <div class="countdown-title group-title"><h2>ĐANG KHUYẾN MẠI</h2></div>
+
+                                        <div class="owl-container">
+                                            <div class="countdown-product-inner">
+                                                @foreach (var item in Model.Where(n => n.MaLoaiSP == 1).OrderByDescending(n => n.TenSP).Take(7))
+                                                {
+                                                    <div class="row_items">
+                                                        <div class="item col-sm-12">
+                                                            <div class="item-inner">
+                                                                <div class="label-pro-sale">
+                                                                    <span>-40%</span>
+                                                                </div>
+                                                                <div class="images-container">
+                                                                    <a class="product-image" href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                        <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                    </a>
+
+                                                                    <div class="actions"></div>
+                                                                </div><!-- image -->
+
+                                                                <div class="des-container">
+                                                                    <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating5">rating</div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="price-box box-special">
+                                                                        <p class="special-price"><span class="price">60,000đ</span></p>
+                                                                        <p class="old-price"><span class="price">@item.DonGia đ</span></p>
+                                                                    </div>
+
+                                                                    <p class="description">@Html.Raw(item.CauHinh)</p>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                }
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <script type="text/javascript">
+                                        $('.deals-products-2913421890 .countdown-product-inner').owlCarousel({
+                                            autoPlay: true,
+                                            items: '1',
+                                            itemsDesktop: [1199, 1],
+                                            itemsDesktopSmall: [991, 1],
+                                            itemsTablet: [767, 1],
+                                            itemsMobile: [479, 1],
+                                            slideSpeed: 1000,
+                                            paginationSpeed: 3000,
+                                            navigation: true,
+                                            stopOnHover: true,
+                                            pagination: false,
+                                            scrollPerPage: true,
+                                            addClassActive: true,
+                                            lazyLoad: true,
+                                            afterAction: function () {
+                                                $(".deals-products-2913421890 .countdown-product-inner .owl-wrapper .owl-item").removeClass('first');
+                                                $(".deals-products-2913421890 .countdown-product-inner .owl-wrapper .owl-item.active:first").addClass('first');
+                                            },
+                                            afterMove: function () {
+                                                x = $(".countdown-tab-content .owl-pagination .owl-page").index($(".countdown-tab-content .owl-pagination .active"));
+                                                var thumbinner = ".thumbinner" + x;
+                                                $(".list-thumb .thumb li").removeClass('active');
+                                                $(thumbinner).addClass('active');
+                                            }
+                                        });
+
+                                        $('.deals-products-2913421890 .countdown-product-inner .item').removeClass('col-sm-12');
+
+                                        var owltimerslider = $(".deals-products-2913421890 .countdown-product-inner").data('owlCarousel');
+
+                                        function timerslider(x) {
+                                            owltimerslider.goTo(x)
+                                        }
+                                    </script>
+                                </div>
+
+                                <div class="sub-col col-md-8 col-sm-12">
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $(".tabs-products-81706797523 .tab_content").hide();
+                                            $(".tabs-products-81706797523 .tab_content:first").show();
+
+                                            $(".tabs-products-81706797523 ul.tabs li").click(function () {
+                                                $(".tabs-products-81706797523 ul.tabs li").removeClass("active");
+                                                $(this).addClass("active");
+                                                $(".tabs-products-81706797523 .tab_content").hide();
+                                                $(".tabs-products-81706797523 .tab_content").removeClass("animate1 wiggle");
+                                                var activeTab = $(this).attr("rel");
+                                                $("#" + activeTab).addClass("animate1 wiggle");
+                                                $("#" + activeTab).fadeIn();
+                                            });
+                                        });
+                                    </script>
+                                    <div class="product-tabs-container-slider module-nav2 quickview-add box-module module-style1 tabs-products-81706797523">
+                                        <div class="title-product-tabs group-title">
+                                            <ul class="tabs">
+                                                <li rel="tab_817067975230">
+                                                    <span class="tab_817067975230">Camera</span>
+                                                </li>
+                                                <li rel="tab_817067975231">
+                                                    <span class="tab_817067975231">Tay cầm chơi game</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="owl-container">
+                                            <div class="tab_container">
+                                                <div id="tab_817067975230" class="tab_content">
+                                                    <div class="owl-demo-tabproduct">
+                                                        @foreach (var item in Model.Where(n => n.MaLoaiSP == 3 && n.Moi == 1).Take(4))
+                                                        {
+                                                            <div class='row_items'>
+
+                                                                <div class="item col-sm-4">
+                                                                    <div class="item-inner">
+                                                                        <div class="images-container">
+                                                                            <div class="label-pro-sale">
+                                                                                <span>-40%</span>
+                                                                            </div>
+                                                                            <a class="product-image" href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                                <div class="product-image">
+                                                                                    <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                                </div>
+                                                                            </a>
+                                                                            <div class="quick-view"></div>
+                                                                        </div><!-- image -->
+                                                                        <div class="des-container">
+                                                                            <h2 class="product-name"><a href="tai-nghe-chup-tai-sony-mdr-zx110ap.html">@item.TenSP</a></h2>
+
+                                                                            <div class="ratings">
+                                                                                <div class="rating-box">
+                                                                                    <div class="rating5">rating</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="price-box">
+                                                                                <p class="special-price"><span class="price">60,000đ</span></p>
+                                                                                <p class="old-price"><span class="price">@item.DonGia đ</span></p>
+                                                                            </div>
+                                                                            <div class="actions">
+                                                                                <a href="@Url.Action("ThemGioHang","GioHang",new { @MaSP = item.MaSP, @strURL = Request.Url.ToString()})" class="button btn-cart" title="Thêm vào giỏ">
+                                                                                    <span><span>Thêm vào giỏ</span></span>
+                                                                                </a>
+                                                                                <ul class="add-to-links">
+                                                                                    <li class="icon-cart">
+                                                                                        <a class="link-cart fa fa-shopping-basket" title="Thêm vào giỏ" data-toggle="tooltip" onclick="cart.add('60');">
+                                                                                            <em>Thêm vào giỏ</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-wishlist fa fa-heart" title="Thêm vào yêu thích" data-toggle="tooltip" onclick="wishlist.add('60');">
+                                                                                            <em>Thêm vào yêu thích</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-compare fa fa-signal" title="So sánh sản phẩm" data-toggle="tooltip" onclick="compare.add('60');">
+                                                                                            <em>So sánh sản phẩm</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div><!-- actions -->
+                                                                        </div><!-- des -->
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="item col-sm-4">
+                                                                    <div class="item-inner">
+                                                                        <div class="images-container">
+                                                                            <a class="product-image" href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                                <div class="product-image">
+                                                                                    <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                                </div>
+                                                                            </a>
+                                                                            <div class="quick-view"></div>
+                                                                        </div><!-- image -->
+                                                                        <div class="des-container">
+                                                                            <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                            <div class="ratings">
+                                                                                <div class="rating-box">
+                                                                                    <div class="rating0">rating</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="price-box">
+                                                                                <span class="price">@item.DonGia đ</span>
+                                                                            </div>
+                                                                            <div class="actions">
+                                                                                <a href="@Url.Action("ThemGioHang","GioHang",new { @MaSP = item.MaSP, @strURL = Request.Url.ToString()})" class="button btn-cart" title="Thêm vào giỏ">
+                                                                                    <span><span>Thêm vào giỏ</span></span>
+                                                                                </a>
+                                                                                <ul class="add-to-links">
+                                                                                    <li class="icon-cart">
+                                                                                        <a class="link-cart fa fa-shopping-basket" title="Thêm vào giỏ" data-toggle="tooltip" onclick="cart.add('61');">
+                                                                                            <em>Thêm vào giỏ</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-wishlist fa fa-heart" title="Thêm vào yêu thích" data-toggle="tooltip" onclick="wishlist.add('61');">
+                                                                                            <em>Thêm vào yêu thích</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-compare fa fa-signal" title="So sánh sản phẩm" data-toggle="tooltip" onclick="compare.add('61');">
+                                                                                            <em>So sánh sản phẩm</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div><!-- actions -->
+                                                                        </div><!-- des -->
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class='row_items'>
+
+                                                                <div class="item col-sm-4">
+                                                                    <div class="item-inner">
+                                                                        <div class="images-container">
+                                                                            <div class="label-pro-sale">
+                                                                                <span>-40%</span>
+                                                                            </div>
+                                                                            <a class="product-image" href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                                <div class="product-image">
+                                                                                    <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                                </div>
+                                                                            </a>
+                                                                            <div class="quick-view"></div>
+                                                                        </div><!-- image -->
+                                                                        <div class="des-container">
+                                                                            <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                            <div class="ratings">
+                                                                                <div class="rating-box">
+                                                                                    <div class="rating0">rating</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="price-box">
+                                                                                <p class="special-price"><span class="price">60,000đ</span></p>
+                                                                                <p class="old-price"><span class="price">@item.DonGia đ</span></p>
+                                                                            </div>
+                                                                            <div class="actions">
+                                                                                <a href="@Url.Action("ThemGioHang","GioHang",new { @MaSP = item.MaSP, @strURL = Request.Url.ToString()})" class="button btn-cart" title="Thêm vào giỏ">
+                                                                                    <span><span>Thêm vào giỏ</span></span>
+                                                                                </a>
+                                                                                <ul class="add-to-links">
+                                                                                    <li class="icon-cart">
+                                                                                        <a class="link-cart fa fa-shopping-basket" title="Thêm vào giỏ" data-toggle="tooltip" onclick="cart.add('58');">
+                                                                                            <em>Thêm vào giỏ</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-wishlist fa fa-heart" title="Thêm vào yêu thích" data-toggle="tooltip" onclick="wishlist.add('58');">
+                                                                                            <em>Thêm vào yêu thích</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-compare fa fa-signal" title="So sánh sản phẩm" data-toggle="tooltip" onclick="compare.add('58');">
+                                                                                            <em>So sánh sản phẩm</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div><!-- actions -->
+                                                                        </div><!-- des -->
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="item col-sm-4">
+                                                                    <div class="item-inner">
+                                                                        <div class="images-container">
+                                                                            <div class="label-pro-sale">
+                                                                                <span>-40%</span>
+                                                                            </div>
+                                                                            <a class="product-image" href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                                <div class="product-image">
+                                                                                    <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                                </div>
+                                                                            </a>
+                                                                            <div class="quick-view"></div>
+                                                                        </div><!-- image -->
+                                                                        <div class="des-container">
+                                                                            <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                            <div class="ratings">
+                                                                                <div class="rating-box">
+                                                                                    <div class="rating0">rating</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="price-box">
+                                                                                <p class="special-price"><span class="price">60,000đ</span></p>
+                                                                                <p class="old-price"><span class="price">@item.DonGia đ</span></p>
+                                                                            </div>
+                                                                            <div class="actions">
+                                                                                <a href="@Url.Action("ThemGioHang","GioHang",new { @MaSP = item.MaSP, @strURL = Request.Url.ToString()})" class="button btn-cart" title="Thêm vào giỏ">
+                                                                                    <span><span>Thêm vào giỏ</span></span>
+                                                                                </a>
+                                                                                <ul class="add-to-links">
+                                                                                    <li class="icon-cart">
+                                                                                        <a class="link-cart fa fa-shopping-basket" title="Thêm vào giỏ" data-toggle="tooltip" onclick="cart.add('59');">
+                                                                                            <em>Thêm vào giỏ</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-wishlist fa fa-heart" title="Thêm vào yêu thích" data-toggle="tooltip" onclick="wishlist.add('59');">
+                                                                                            <em>Thêm vào yêu thích</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-compare fa fa-signal" title="So sánh sản phẩm" data-toggle="tooltip" onclick="compare.add('59');">
+                                                                                            <em>So sánh sản phẩm</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div><!-- actions -->
+                                                                        </div><!-- des -->
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                                <div id="tab_817067975231" class="tab_content">
+                                                    <div class="owl-demo-tabproduct">
+                                                        @foreach (var item in Model.Where(n => n.MaLoaiSP == 2 && n.Moi == 1).Take(4))
+                                                        {
+                                                            <div class='row_items'>
+
+                                                                <div class="item col-sm-4">
+                                                                    <div class="item-inner">
+                                                                        <div class="images-container">
+                                                                            <div class="label-pro-sale">
+                                                                                <span>-40%</span>
+                                                                            </div>
+                                                                            <a class="product-image" href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                                <div class="product-image">
+                                                                                    <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                                </div>
+                                                                            </a>
+                                                                            <div class="quick-view"></div>
+                                                                        </div><!-- image -->
+                                                                        <div class="des-container">
+                                                                            <h2 class="product-name"><a href="tai-nghe-chup-tai-sony-mdr-zx110ap.html">@item.TenSP</a></h2>
+
+                                                                            <div class="ratings">
+                                                                                <div class="rating-box">
+                                                                                    <div class="rating5">rating</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="price-box">
+                                                                                <p class="special-price"><span class="price">60,000đ</span></p>
+                                                                                <p class="old-price"><span class="price">@item.DonGia đ</span></p>
+                                                                            </div>
+                                                                            <div class="actions">
+                                                                                <a href="@Url.Action("ThemGioHang","GioHang",new { @MaSP = item.MaSP, @strURL = Request.Url.ToString()})" class="button btn-cart" title="Thêm vào giỏ">
+                                                                                    <span><span>Thêm vào giỏ</span></span>
+                                                                                </a>
+                                                                                <ul class="add-to-links">
+                                                                                    <li class="icon-cart">
+                                                                                        <a class="link-cart fa fa-shopping-basket" title="Thêm vào giỏ" data-toggle="tooltip" onclick="cart.add('60');">
+                                                                                            <em>Thêm vào giỏ</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-wishlist fa fa-heart" title="Thêm vào yêu thích" data-toggle="tooltip" onclick="wishlist.add('60');">
+                                                                                            <em>Thêm vào yêu thích</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-compare fa fa-signal" title="So sánh sản phẩm" data-toggle="tooltip" onclick="compare.add('60');">
+                                                                                            <em>So sánh sản phẩm</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div><!-- actions -->
+                                                                        </div><!-- des -->
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="item col-sm-4">
+                                                                    <div class="item-inner">
+                                                                        <div class="images-container">
+                                                                            <a class="product-image" href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                                <div class="product-image">
+                                                                                    <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                                </div>
+                                                                            </a>
+                                                                            <div class="quick-view"></div>
+                                                                        </div><!-- image -->
+                                                                        <div class="des-container">
+                                                                            <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                            <div class="ratings">
+                                                                                <div class="rating-box">
+                                                                                    <div class="rating0">rating</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="price-box">
+                                                                                <span class="price">@item.DonGia đ</span>
+                                                                            </div>
+                                                                            <div class="actions">
+                                                                                <a href="@Url.Action("ThemGioHang","GioHang",new { @MaSP = item.MaSP, @strURL = Request.Url.ToString()})" class="button btn-cart" title="Thêm vào giỏ">
+                                                                                    <span><span>Thêm vào giỏ</span></span>
+                                                                                </a>
+                                                                                <ul class="add-to-links">
+                                                                                    <li class="icon-cart">
+                                                                                        <a class="link-cart fa fa-shopping-basket" title="Thêm vào giỏ" data-toggle="tooltip" onclick="cart.add('61');">
+                                                                                            <em>Thêm vào giỏ</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-wishlist fa fa-heart" title="Thêm vào yêu thích" data-toggle="tooltip" onclick="wishlist.add('61');">
+                                                                                            <em>Thêm vào yêu thích</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-compare fa fa-signal" title="So sánh sản phẩm" data-toggle="tooltip" onclick="compare.add('61');">
+                                                                                            <em>So sánh sản phẩm</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div><!-- actions -->
+                                                                        </div><!-- des -->
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class='row_items'>
+
+                                                                <div class="item col-sm-4">
+                                                                    <div class="item-inner">
+                                                                        <div class="images-container">
+                                                                            <div class="label-pro-sale">
+                                                                                <span>-40%</span>
+                                                                            </div>
+                                                                            <a class="product-image" href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                                <div class="product-image">
+                                                                                    <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                                </div>
+                                                                            </a>
+                                                                            <div class="quick-view"></div>
+                                                                        </div><!-- image -->
+                                                                        <div class="des-container">
+                                                                            <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                            <div class="ratings">
+                                                                                <div class="rating-box">
+                                                                                    <div class="rating0">rating</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="price-box">
+                                                                                <p class="special-price"><span class="price">60,000đ</span></p>
+                                                                                <p class="old-price"><span class="price">@item.DonGia đ</span></p>
+                                                                            </div>
+                                                                            <div class="actions">
+                                                                                <a href="@Url.Action("ThemGioHang","GioHang",new { @MaSP = item.MaSP, @strURL = Request.Url.ToString()})" class="button btn-cart" title="Thêm vào giỏ">
+                                                                                    <span><span>Thêm vào giỏ</span></span>
+                                                                                </a>
+                                                                                <ul class="add-to-links">
+                                                                                    <li class="icon-cart">
+                                                                                        <a class="link-cart fa fa-shopping-basket" title="Thêm vào giỏ" data-toggle="tooltip" onclick="cart.add('58');">
+                                                                                            <em>Thêm vào giỏ</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-wishlist fa fa-heart" title="Thêm vào yêu thích" data-toggle="tooltip" onclick="wishlist.add('58');">
+                                                                                            <em>Thêm vào yêu thích</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-compare fa fa-signal" title="So sánh sản phẩm" data-toggle="tooltip" onclick="compare.add('58');">
+                                                                                            <em>So sánh sản phẩm</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div><!-- actions -->
+                                                                        </div><!-- des -->
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="item col-sm-4">
+                                                                    <div class="item-inner">
+                                                                        <div class="images-container">
+                                                                            <div class="label-pro-sale">
+                                                                                <span>-40%</span>
+                                                                            </div>
+                                                                            <a class="product-image" href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                                <div class="product-image">
+                                                                                    <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                                </div>
+                                                                            </a>
+                                                                            <div class="quick-view"></div>
+                                                                        </div><!-- image -->
+                                                                        <div class="des-container">
+                                                                            <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                            <div class="ratings">
+                                                                                <div class="rating-box">
+                                                                                    <div class="rating0">rating</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="price-box">
+                                                                                <p class="special-price"><span class="price">60,000đ</span></p>
+                                                                                <p class="old-price"><span class="price">@item.DonGia đ</span></p>
+                                                                            </div>
+                                                                            <div class="actions">
+                                                                                <a href="@Url.Action("ThemGioHang","GioHang",new { @MaSP = item.MaSP, @strURL = Request.Url.ToString()})" class="button btn-cart" title="Thêm vào giỏ">
+                                                                                    <span><span>Thêm vào giỏ</span></span>
+                                                                                </a>
+                                                                                <ul class="add-to-links">
+                                                                                    <li class="icon-cart">
+                                                                                        <a class="link-cart fa fa-shopping-basket" title="Thêm vào giỏ" data-toggle="tooltip" onclick="cart.add('59');">
+                                                                                            <em>Thêm vào giỏ</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-wishlist fa fa-heart" title="Thêm vào yêu thích" data-toggle="tooltip" onclick="wishlist.add('59');">
+                                                                                            <em>Thêm vào yêu thích</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="link-compare fa fa-signal" title="So sánh sản phẩm" data-toggle="tooltip" onclick="compare.add('59');">
+                                                                                            <em>So sánh sản phẩm</em>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div><!-- actions -->
+                                                                        </div><!-- des -->
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $(".product-tabs-container-slider .tabs li:first").addClass("active");
+                                            $(".owl-demo-tabproduct").owlCarousel({
+                                                items: '3',
+                                                autoPlay: false,
+                                                slideSpeed: 1000,
+                                                navigation: true,
+                                                paginationNumbers: true,
+                                                pagination: false,
+                                                stopOnHover: false,
+                                                itemsDesktop: [1199, 2],
+                                                itemsDesktopSmall: [991, 2],
+                                                itemsTablet: [767, 2],
+                                                itemsMobile: [479, 1],
+                                                addClassActive: true,
+                                                scrollPerPage: false,
+                                                afterAction: function () {
+                                                    $(".tabs-products-81706797523 .owl-demo-tabproduct .owl-wrapper .owl-item").removeClass('first');
+                                                    $(".tabs-products-81706797523 .owl-demo-tabproduct .owl-wrapper .owl-item").removeClass('last');
+                                                    $(".tabs-products-81706797523 .owl-demo-tabproduct .owl-item").removeClass('before-active');
+                                                    $(".tabs-products-81706797523 .owl-demo-tabproduct .owl-wrapper .owl-item.active:first").addClass('first');
+                                                    $(".tabs-products-81706797523 .owl-demo-tabproduct .owl-wrapper .owl-item.active:last").addClass('last');
+                                                    $('.tabs-products-81706797523 .owl-demo-tabproduct .owl-wrapper .owl-item.active:first').prev().addClass('before-active');
+                                                }
+                                            });
+                                            $(".tabs-products-81706797523 .item").removeClass('col-sm-4');
+                                        });
+                                    </script>
+                                </div>
+                                <div class="sub-col col-md-8 col-sm-12">
+                                    <div class="banner-static static-top-bigone1">
+                                        <div class="owl-container">
+                                            <div id="static_top_bigone1029380160">
+                                                <div class="col ">
+                                                    <div class="image">
+                                                        <a href="javascript:void(0)" target="_self">
+                                                            <img src="/Content/image/cache/catalog/banner/img-bottom-bigone1-770x171.jpg" alt="Samsung  second generation">
+                                                            <span class="text">
+                                                                <span class="text1">Samsung  second generation</span>
+                                                                <span class="text2"><p><strong>SUHD</strong> quantum point TV</p></span>
+                                                                <span class="text3"><strong>$609.00</strong></span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="main-row">
+                <div class="container">
+                    <div class="row">
+                        <div class="main-col col-sm-12 col-md-12">
+                            <div class="row sub-row">
+                                <div class="col-sm-12 ">
+                                    <div class="featured-categories-container module-nav2 category-custom-title-1">
+                                        <div class="group-title"><h2>Danh mục nổi bật</h2></div>
+                                        <div class="owl-container">
+                                            <div class="owl-featured-categories">
+                                                @foreach (var item in Model.OrderBy(n => n.MaLoaiSP == 1).Take(1))
+                                                {
+                                                    <div class="row_items">
+
+                                                        <div class="item col-sm-3">
+                                                            <div class="item-inner">
+                                                                <div class="fcategory-content">
+                                                                    <a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})" class="image">
+                                                                        <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                    </a>
+                                                                    <div class="content-thumb">
+                                                                        <h2 class="name">
+                                                                            <a href="camera.html">
+                                                                                Điện thoại
+                                                                            </a>
+                                                                        </h2>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                }
+                                                @foreach (var item in Model.OrderBy(n => n.MaLoaiSP == 2).Take(1))
+                                                {
+                                                    <div class="row_items">
+
+                                                        <div class="item col-sm-3">
+                                                            <div class="item-inner">
+                                                                <div class="fcategory-content">
+                                                                    <a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})" class="image">
+                                                                        <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                    </a>
+                                                                    <div class="content-thumb">
+                                                                        <h2 class="name">
+                                                                            <a href="may-tinh-va-laptop.html">
+                                                                                Máy tính bảng
+                                                                            </a>
+                                                                        </h2>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                }
+                                                @foreach (var item in Model.OrderBy(n => n.MaLoaiSP == 3).Take(1))
+                                                {
+                                                    <div class="row_items">
+
+                                                        <div class="item col-sm-3">
+                                                            <div class="item-inner">
+                                                                <div class="fcategory-content">
+                                                                    <a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})" class="image">
+                                                                        <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                    </a>
+                                                                    <div class="content-thumb">
+                                                                        <h2 class="name">
+                                                                            <a href="noi-that.html">
+                                                                                Laptop
+                                                                            </a>
+                                                                        </h2>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                }
+
+                                               
+                                                <div class="row_items">
+
+                                                    <div class="item col-sm-3">
+                                                        <div class="item-inner">
+                                                            <div class="fcategory-content">
+                                                                <a href="#" class="image">
+                                                                    <img src="/Content/image/catalog/Danh-muc/desktop.jpg" alt="" />
+                                                                </a>
+                                                                <div class="content-thumb">
+                                                                    <h2 class="name">
+                                                                        <a href="phu-kien.html">
+                                                                            Phụ kiện
+                                                                        </a>
+                                                                    </h2>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row_items">
+
+                                                    <div class="item col-sm-3">
+                                                        <div class="item-inner">
+                                                            <div class="fcategory-content">
+                                                                <a href="#" class="image">
+                                                                    <img src="/Content/image/catalog/Danh-muc/audio.jpg" alt="" />
+                                                                </a>
+                                                                <div class="content-thumb">
+                                                                    <h2 class="name">
+                                                                        <a href="sach-va-van-phong-pham.html">
+                                                                            Sách và Văn phòng phẩm
+                                                                        </a>
+                                                                    </h2>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row_items">
+
+                                                    <div class="item col-sm-3">
+                                                        <div class="item-inner">
+                                                            <div class="fcategory-content">
+                                                                <a href="#" class="image">
+                                                                    <img src="/Content/image/catalog/Danh-muc/desktop.jpg" alt="" />
+                                                                </a>
+                                                                <div class="content-thumb">
+                                                                    <h2 class="name">
+                                                                        <a href="tai-nghe.html">
+                                                                            Tai nghe
+                                                                        </a>
+                                                                    </h2>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row_items">
+
+                                                    <div class="item col-sm-3">
+                                                        <div class="item-inner">
+                                                            <div class="fcategory-content">
+                                                                <a href="#" class="image">
+                                                                    <img src="/Content/image/catalog/Danh-muc/audio.jpg" alt="" />
+                                                                </a>
+                                                                <div class="content-thumb">
+                                                                    <h2 class="name">
+                                                                        <a href="tay-cam-choi-game.html">
+                                                                            Tay cầm chơi game
+                                                                        </a>
+                                                                    </h2>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $(".category-custom-title-1 .owl-featured-categories").owlCarousel({
+                                                slideSpeed: 1000,
+                                                items: '4',
+                                                autoPlay: false,
+                                                navigation: true,
+                                                paginationNumbers: true,
+                                                pagination: false,
+                                                stopOnHover: false,
+                                                itemsDesktop: [1199, 3],
+                                                itemsDesktopSmall: [991, 3],
+                                                itemsTablet: [767, 2],
+                                                itemsMobile: [479, 1],
+                                                addClassActive: true,
+                                                scrollPerPage: false,
+                                                afterAction: function () {
+                                                    $(".category-custom-title-1 .owl-featured-categories .owl-wrapper .owl-item").removeClass('first');
+                                                    $(".category-custom-title-1 .owl-featured-categories .owl-wrapper .owl-item").removeClass('last');
+                                                    $(".category-custom-title-1 .owl-featured-categories .owl-wrapper .owl-item").removeClass('before-active');
+                                                    $(".category-custom-title-1 .owl-featured-categories .owl-wrapper .owl-item.active:first").addClass('first');
+                                                    $(".category-custom-title-1 .owl-featured-categories .owl-wrapper .owl-item.active:last").addClass('last');
+                                                    $('.category-custom-title-1 .owl-featured-categories .owl-wrapper .owl-item.active:first').prev().addClass('before-active');
+                                                }
+                                            });
+                                            $(".category-custom-title-1 .owl-featured-categories .item").removeClass('col-sm-3');
+                                        });
+                                    </script>
+                                </div>
+                                <div class="sub-col col-sm-12">
+                                    <div class="brand-slider">
+                                        <div class="container-inner">
+                                            <div class="owl-container">
+                                                <div id="carousel1320826701" class="owl-carousel">
+                                                    <div class="item text-center">
+                                                        <a href="#"><img src="/Content/image/catalog/Brand/brand1.png" alt="Apple" class="img-responsive" /></a>
+                                                    </div>
+                                                    <div class="item text-center">
+                                                        <a href="#"><img src="/Content/image/catalog/Brand/brand2.png" alt="Canon" class="img-responsive" /></a>
+                                                    </div>
+                                                    <div class="item text-center">
+                                                        <a href="#"><img src="/Content/image/catalog/Brand/brand3.png" alt="Hp" class="img-responsive" /></a>
+                                                    </div>
+                                                    <div class="item text-center">
+                                                        <a href="#"><img src="/Content/image/catalog/Brand/brand4.png" alt="HTC" class="img-responsive" /></a>
+                                                    </div>
+                                                    <div class="item text-center">
+                                                        <a href="#"><img src="/Content/image/catalog/Brand/brand5.png" alt="Palm" class="img-responsive" /></a>
+                                                    </div>
+                                                    <div class="item text-center">
+                                                        <a href="#"><img src="/Content/image/catalog/Brand/brand6.png" alt="Sony" class="img-responsive" /></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $('#carousel1320826701').owlCarousel({
+                                            items: '5',
+                                            autoPlay: false,
+                                            navigation: true,
+                                            pagination: false,
+                                            itemsDesktop: [1199, 5],
+                                            itemsDesktopSmall: [991, 4],
+                                            itemsTablet: [767, 3],
+                                            itemsMobile: [479, 2],
+                                        });</script>
+                                </div>
+
+                                <div class="sub-col col-md-6 col-sm-12">
+                                    <div id="blog_home-51511453692" class="menu-recent module-nav2 box-module">
+                                        <div>
+                                            <div class="blog-title group-title">
+                                                <h2>
+                                                    <span> Tin </span><span> tức </span><span class='word2'> mới nhất </span>
+                                                </h2>
+                                            </div>
+
+                                            <div class="owl-container">
+                                                <div class="articles-container">
+                                                    <div class="row_items">
+
+                                                        <div class="articles-inner">
+                                                            <div class="articles-image">
+                                                                <a href="#"><img src="/Content/image/cache/catalog/tin-tuc/blog_1-370x224.jpg" alt="Loa thông minh Apple vừa ra mắt đang bị cư dân mạng chế ảnh tơi tả" /></a>
+                                                            </div>
+                                                            <div class="aritcles-content">
+                                                                <a class="articles-name" href="#">Loa thông minh Apple vừa ra mắt đang bị cư dân mạng chế ảnh tơi tả</a>
+                                                                <div class="articles-date">13/04/2017</div>
+                                                                <div class="articles-intro"></div>
+                                                                <a class="read-more" href="#">Xem thêm</a>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="articles-inner">
+                                                            <div class="articles-image">
+                                                                <a href="#"><img src="/Content/image/cache/catalog/tin-tuc/blog_2-370x224.jpg" alt="Freelancer Design Trick How To Get" /></a>
+                                                            </div>
+                                                            <div class="aritcles-content">
+                                                                <a class="articles-name" href="#">Freelancer Design Trick How To Get</a>
+                                                                <div class="articles-date">11/03/2017</div>
+                                                                <div class="articles-intro"></div>
+                                                                <a class="read-more" href="#">Xem thêm</a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row_items">
+
+                                                        <div class="articles-inner">
+                                                            <div class="articles-image">
+                                                                <a href="#"><img src="/Content/image/cache/catalog/tin-tuc/blog_3-370x224.jpg" alt="CAMERA SIÊU NHANH VỚI TỐC ĐỘ GẤP 1.000 LẦN TIA LASER" /></a>
+                                                            </div>
+                                                            <div class="aritcles-content">
+                                                                <a class="articles-name" href="#">CAMERA SIÊU NHANH VỚI TỐC ĐỘ GẤP 1.000 LẦN TIA LASER</a>
+                                                                <div class="articles-date">02/06/2017</div>
+                                                                <div class="articles-intro"></div>
+                                                                <a class="read-more" href="#">Xem thêm</a>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="articles-inner">
+                                                            <div class="articles-image">
+                                                                <a href="#"><img src="/Content/image/cache/catalog/tin-tuc/blog_4-370x224.jpg" alt="Sam Sung Galaxy s6 - Đột Phá Công Nghệ" /></a>
+                                                            </div>
+                                                            <div class="aritcles-content">
+                                                                <a class="articles-name" href="#">Sam Sung Galaxy s6 - Đột Phá Công Nghệ</a>
+                                                                <div class="articles-date">15/03/2017</div>
+                                                                <div class="articles-intro"></div>
+                                                                <a class="read-more" href="#">Xem thêm</a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $("#blog_home-51511453692 .articles-container").owlCarousel({
+                                                autoPlay: false,
+                                                items: '1',
+                                                itemsDesktop: [1199, 1],
+                                                itemsDesktopSmall: [991, 1],
+                                                itemsTablet: [767, 1],
+                                                itemsMobile: [479, 1],
+                                                slideSpeed: 1000,
+                                                paginationSpeed: 1000,
+                                                rewindSpeed: 1000,
+                                                navigation: true,
+                                                pagination: false,
+                                                stopOnHover: true,
+                                                addClassActive: true
+                                            });
+                                        });
+                                    </script>
+                                </div>
+
+                                <div class="sub-col col-md-6 col-sm-12">
+                                    <div class="testimonial-container module-nav2 box-module feedback-7104570612">
+                                        <div class="group-title">
+                                            <h2>Phản hồi của khách hàng</h2>
+                                        </div>
+
+                                        <div class="owl-container">
+                                            <div class="block-content">
+                                                <div id="slides">
+                                                    <div class="row_items">
+
+                                                        <div class="testimonial-content">
+                                                            <div class="testimonial-box media-body">
+                                                                <a href="javascript:void(0)">" &quot; This is Photoshops version  of Lorem Ipsum. Proin gravida nibh vel velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie augue magna. Pellentesque felis lorem, pulvinar ..&quot;"</a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row_items">
+
+                                                        <div class="testimonial-content">
+                                                            <div class="testimonial-box media-body">
+                                                                <a href="javascript:void(0)">" &quot; This is Photoshops version  of Lorem Ipsum. Proin gravida nibh vel velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie augue magna. Pellentesque felis lorem, pulvinar ..&quot;"</a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row_items">
+
+                                                        <div class="testimonial-content">
+                                                            <div class="testimonial-box media-body">
+                                                                <a href="javascript:void(0)">" &quot; This is Photoshops version  of Lorem Ipsum. Proin gravida nibh vel velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie augue magna. Pellentesque felis lorem, pulvinar ..&quot;"</a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row_items">
+
+                                                        <div class="testimonial-content">
+                                                            <div class="testimonial-box media-body">
+                                                                <a href="javascript:void(0)">" &quot; This is Photoshops version  of Lorem Ipsum. Proin gravida nibh vel velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie augue magna. Pellentesque felis lorem, pulvinar ..&quot;"</a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row_items">
+
+                                                        <div class="testimonial-content">
+                                                            <div class="testimonial-box media-body">
+                                                                <a href="javascript:void(0)">" &quot; This is Photoshops version  of Lorem Ipsum. Proin gravida nibh vel velit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie augue magna. Pellentesque felis lorem, pulvinar ..&quot;"</a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <ul class="thumb">
+                                                    <li class="testithumb0 active"
+                                                        onclick="testislider(0)">
+                                                        <img src="/Content/image/cache/catalog/phan-hoi/testimor1-250x250.png" alt="Dewey Tetzlaff">
+                                                        <span class="testimonial-author">Dewey Tetzlaff</span>
+                                                    </li>
+                                                    <li class="testithumb1 "
+                                                        onclick="testislider(1)">
+                                                        <img src="/Content/image/cache/catalog/phan-hoi/testimor2-250x250.png" alt="Alva Ono">
+                                                        <span class="testimonial-author">Alva Ono</span>
+                                                    </li>
+                                                    <li class="testithumb2 "
+                                                        onclick="testislider(2)">
+                                                        <img src="/Content/image/cache/catalog/phan-hoi/testimor3-250x250.png" alt="Magdalena Valencia">
+                                                        <span class="testimonial-author">Magdalena Valencia</span>
+                                                    </li>
+                                                    <li class="testithumb3 "
+                                                        onclick="testislider(3)">
+                                                        <img src="/Content/image/cache/catalog/phan-hoi/testimor4-250x250.png" alt="Nathanael Jaworski">
+                                                        <span class="testimonial-author">Nathanael Jaworski</span>
+                                                    </li>
+                                                    <li class="testithumb4 "
+                                                        onclick="testislider(4)">
+                                                        <img src="/Content/image/cache/catalog/phan-hoi/testimor5-250x250.png" alt="Rebecka Filson">
+                                                        <span class="testimonial-author">Rebecka Filson</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $(".feedback-7104570612 #slides").owlCarousel({
+                                            autoPlay: false,
+                                            items: 1,
+                                            itemsDesktop: [1199, 1],
+                                            itemsDesktopSmall: [991, 1],
+                                            itemsTablet: [767, 1],
+                                            itemsMobile: [479, 1],
+                                            slideSpeed: 1000,
+                                            paginationSpeed: 1000,
+                                            rewindSpeed: 1000,
+                                            navigation: true,
+                                            pagination: true,
+                                            afterMove: function () {
+                                                x = $(".feedback-7104570612 .block-content #slides .owl-pagination .owl-page").index($(".feedback-7104570612 .block-content #slides .owl-pagination .active"));
+                                                var testithumb = ".testithumb" + x;
+                                                $(".feedback-7104570612 .block-content .thumb li").removeClass('active');
+                                                $(testithumb).addClass('active');
+                                            }
+                                        });
+
+                                        var owlslider = $(".feedback-7104570612 .block-content #slides").data('owlCarousel');
+
+                                        function testislider(x) {
+                                            owlslider.goTo(x)
+                                        }
+
+                                        var length_item = $('.feedback-7104570612 #slides .owl-item').length;
+                                        var y = length_item % 2 == 0 ? length_item / 2 : Math.round(length_item / 2) - 1;
+                                        owlslider.goTo(y);
+
+                                        $(".feedback-7104570612.testimonial-container .thumb").owlCarousel({
+                                            autoPlay: false,
+                                            items: '5',
+                                            itemsDesktop: [1199, 4],
+                                            itemsDesktopSmall: [991, 5],
+                                            itemsTablet: [767, 3],
+                                            itemsMobile: [479, 2],
+                                            slideSpeed: 1000,
+                                            paginationSpeed: 1000,
+                                            navigation: false,
+                                            pagination: true,
+                                            addClassActive: true,
+                                            scrollPerPage: false
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-row">
+                <div class="container">
+                    <div class="row">
+                        <div class="main-col col-sm-12 col-md-12">
+                            <div class="row sub-row">
+                                <div class="col-sm-12">
+                                    <div class="ma-corporate-about service-91645957706">
+                                        <div class="col">
+                                            <div class="block-wrapper wrapper0">
+                                                <div class="text-des">
+                                                    <i class="fa fa-paper-plane-o"></i>
+
+                                                    <h3>Giao hàng miễn phí</h3>
+                                                    <p>Đơn hàng trên 500.000</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="block-wrapper wrapper1">
+                                                <div class="text-des">
+                                                    <i class="fa fa-refresh"></i>
+
+                                                    <h3>Đổi trả trong 90 ngày</h3>
+                                                    <p>Nếu sản phẩm có vấn đề</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="block-wrapper wrapper2">
+                                                <div class="text-des">
+                                                    <i class="fa fa-credit-card"></i>
+
+                                                    <h3>Bảo mật thành toán</h3>
+                                                    <p>Thông tin bảo mật 100%</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="block-wrapper wrapper3">
+                                                <div class="text-des">
+                                                    <i class="fa fa-umbrella"></i>
+
+                                                    <h3>Hỗ trợ 24/7</h3>
+                                                    <p>Luôn sẵn hàng hỗ trợ</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $(".service-91645957706.ma-corporate-about").owlCarousel({
+                                                autoPlay: false,
+                                                slideSpeed: 1000,
+                                                navigation: false,
+                                                stopOnHover: true,
+                                                pagination: false,
+                                                items: '4',
+                                                itemsDesktop: [1199, 3],
+                                                itemsDesktopSmall: [991, 3],
+                                                itemsTablet: [767, 2],
+                                                itemsMobile: [479, 1],
+                                                addClassActive: true,
+                                                scrollPerPage: false,
+                                                afterAction: function () {
+                                                    $(".service-91645957706.ma-corporate-about .owl-wrapper .owl-item").removeClass('last');
+                                                    $(".service-91645957706.ma-corporate-about .owl-wrapper .owl-item").removeClass('first');
+                                                    $(".service-91645957706.ma-corporate-about .owl-wrapper .owl-item").removeClass('before-active');
+                                                    $(".service-91645957706.ma-corporate-about .owl-wrapper .owl-item.active:first").addClass('first');
+                                                    $(".service-91645957706.ma-corporate-about .owl-wrapper .owl-item.active:last").addClass('last');
+                                                    $('.service-91645957706.ma-corporate-about .owl-wrapper .owl-item.active:first').prev().addClass('before-active');
+                                                }
+                                            });
+                                        });
+                                    </script>
+                                </div>
+
+                                <div class="sub-col col-md-12 col-sm-12">
+                                    <div class="bestseller-products-slider module-nav2 box-module module-style3 product-slider-71142068770">
+                                        <div class="group-title"><h2>Sản phẩm bán chạy</h2></div>
+                                        <div class="owl-container">
+                                            <div class="bestseller_products_slider">
+                                                @foreach (var item in Model.OrderBy(n => n.MaLoaiSP == 1 && n.Moi == 1).Take(2))
+                                                {
+                                                    <div class="row_items">
+
+                                                        <div class="item col-sm-3">
+                                                            <div class="item-inner">
+                                                                <div class="images-container">
+                                                                    <div class="label-pro-sale">
+                                                                        <span>-40%</span>
+                                                                    </div>
+
+                                                                    <a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                        <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                    </a>
+
+                                                                </div>
+                                                                <div class="des-container">
+                                                                    <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating0">rating</div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="price-box box-special">
+                                                                        <p class="special-price"><span class="price">@item.DonGia đ</span></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                }
+
+                                                @foreach (var item in Model.OrderBy(n => n.MaLoaiSP == 1 && n.Moi == 0).Take(2))
+                                                {
+                                                    <div class="row_items">
+
+                                                        <div class="item col-sm-3">
+                                                            <div class="item-inner">
+                                                                <div class="images-container">
+                                                                    <div class="label-pro-sale">
+                                                                        <span>-40%</span>
+                                                                    </div>
+
+                                                                    <a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                        <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                    </a>
+
+                                                                </div>
+                                                                <div class="des-container">
+                                                                    <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating0">rating</div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="price-box box-special">
+                                                                        <p class="special-price"><span class="price">@item.DonGia đ</span></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                }
+
+                                                @foreach (var item in Model.OrderBy(n => n.MaLoaiSP == 2 && n.Moi == 1).Take(2))
+                                                {
+                                                    <div class="row_items">
+
+                                                        <div class="item col-sm-3">
+                                                            <div class="item-inner">
+                                                                <div class="images-container">
+                                                                    <div class="label-pro-sale">
+                                                                        <span>-40%</span>
+                                                                    </div>
+
+                                                                    <a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                        <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                    </a>
+
+                                                                </div>
+                                                                <div class="des-container">
+                                                                    <h2 class="product-name"><a href="tay-cam-dualshock-4-crystal.html">@item.TenSP</a></h2>
+
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating0">rating</div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="price-box box-special">
+                                                                        <p class="special-price"><span class="price">@item.DonGia đ</span></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+
+                                                    </div>
+                                                }
+
+                                                @foreach (var item in Model.OrderBy(n => n.MaLoaiSP == 3 && n.Moi == 1).Take(2))
+                                                {
+                                                    <div class="row_items">
+
+                                                        <div class="item col-sm-3">
+                                                            <div class="item-inner">
+                                                                <div class="images-container">
+                                                                    <div class="label-pro-sale">
+                                                                        <span>-40%</span>
+                                                                    </div>
+
+                                                                    <a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">
+                                                                        <img src="../Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" />
+                                                                    </a>
+
+                                                                </div>
+                                                                <div class="des-container">
+                                                                    <h2 class="product-name"><a href="tay-cam-dualshock-4-crystal.html">@item.TenSP</a></h2>
+
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating0">rating</div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="price-box box-special">
+                                                                        <p class="special-price"><span class="price">@item.DonGia đ</span></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $(".product-slider-71142068770 .bestseller_products_slider").owlCarousel({
+                                                autoPlay: false,
+                                                items: '4',
+                                                itemsDesktop: [1199, 3],
+                                                itemsDesktopSmall: [991, 2],
+                                                itemsTablet: [767, 2],
+                                                itemsMobile: [479, 1],
+                                                slideSpeed: 1000,
+                                                navigation: true,
+                                                paginationNumbers: true,
+                                                pagination: false,
+                                                stopOnHover: false,
+                                                addClassActive: true,
+                                                scrollPerPage: false,
+                                                afterAction: function () {
+                                                    $(".product-slider-71142068770 .bestseller_products_slider .owl-wrapper .owl-item").removeClass('first');
+                                                    $(".product-slider-71142068770 .bestseller_products_slider .owl-wrapper .owl-item").removeClass('last');
+                                                    $(".product-slider-71142068770 .bestseller_products_slider .owl-wrapper .owl-item").removeClass('before-active');
+                                                    $(".product-slider-71142068770 .bestseller_products_slider .owl-wrapper .owl-item.active:first").addClass('first');
+                                                    $(".product-slider-71142068770 .bestseller_products_slider .owl-wrapper .owl-item.active:last").addClass('last');
+                                                    $('.product-slider-71142068770 .bestseller_products_slider .owl-wrapper .owl-item.active:first').prev().addClass('before-active');
+                                                }
+                                            });
+                                            $(".product-slider-71142068770 .bestseller_products_slider .item").removeClass('col-sm-3');
+                                        });
+                                    </script>
+                                </div>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        var html = '';
+                                        html += '<a class="" href="';
+                                        html += "#";
+                                        html += '" target="';
+                                        html += "_self";
+                                        html += '"><img class="" src="';
+                                        html += "/Content/image/cache/catalog/banner/payment-364x32.png";
+                                        html += '" alt="';
+                                        html += "payment";
+                                        html += '" /></a>';
+
+                                        $('footer .footer-top .footer-payment').append(html);
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

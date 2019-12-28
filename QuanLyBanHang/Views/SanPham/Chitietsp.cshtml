@@ -1,0 +1,577 @@
+﻿@using QuanLyBanHang.Models;
+@model SanPham
+@{
+    ViewBag.Title = "Chitietsp";
+    Layout = "~/Views/Shared/_ShopBanHang.cshtml";
+}
+@section scripts{
+
+    <link href="/Content/catalog/view/javascript/jquery/magnific/magnific-popup.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="/Content/catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css" type="text/css" rel="stylesheet" media="screen" />
+    <script src="/Content/catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js" type="text/javascript"></script>
+    <script src="/Content/catalog/view/javascript/jquery/datetimepicker/moment.js" type="text/javascript"></script>
+    <script src="/Content/catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+    <style>
+        .common-home .breadcrumbs {
+            display: block;
+        }
+    </style>
+}
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/Home"><i class="fa fa-home"></i> Trang chủ</a></li>
+        <li><a href="san-pham.html">Sản phẩm</a></li>
+        <li><a href="noi-that.html">@Model.TenSP</a></li>
+    </ul>
+    <div class="row">
+        <div id="content" class="col-sm-12">
+            <div class="row">
+                <!--product slider-->
+                <div class="col-1 col-sm-6">
+                    <div class="thumbnails">
+                        <a class="thumbnail" title="@Model.TenSP">
+                            <img src="/Content/HinhAnhSP/@Model.HinhAnh" data-zoom-image="/Content/HinhAnhSP/@Model.HinhAnh"
+                                 title="Máy tính bảng Asus" alt="Máy tính bảng Asus" />
+                        </a>
+                    </div>
+                    <div class="image-additional-container owl-style3">
+                        <div class="owl-container">
+                            <div class="image-additional" id="gallery_01">
+                                <a class="thumbnail" style="display: none" href="#" data-image="/Content/HinhAnhSP/@Model.HinhAnh1" data-zoom-image="/Content/HinhAnhSP/@Model.HinhAnh1" title="Máy tính bảng Asus"><img src="/Content/HinhAnhSP/@Model.HinhAnh1" title="Máy tính bảng Asus" alt="Máy tính bảng Asus" /></a>
+                                <a style="display: none" class="thumbnail" href="#" data-image="/Content/HinhAnhSP/@Model.HinhAnh2" data-zoom-image="/Content/HinhAnhSP/@Model.HinhAnh2" title="Máy tính bảng Asus">
+                                    <img src="/Content/HinhAnhSP/@Model.HinhAnh2" title="Máy tính bảng Asus" alt="Máy tính bảng Asus" />
+                                </a>
+                                <a style="display: none" class="thumbnail" href="#" data-image="/Content/HinhAnhSP/@Model.HinhAnh3" data-zoom-image="/Content/HinhAnhSP/@Model.HinhAnh3" title="Máy tính bảng Asus">
+                                    <img src="/Content/HinhAnhSP/@Model.HinhAnh3" title="Máy tính bảng Asus" alt="Máy tính bảng Asus" />
+                                </a>
+                                <a style="display: none" class="thumbnail" href="#" data-image="/Content/HinhAnhSP/@Model.HinhAnh4" data-zoom-image="/Content/HinhAnhSP/@Model.HinhAnh4" title="Máy tính bảng Asus">
+                                    <img src="/Content/HinhAnhSP/@Model.HinhAnh4" title="Máy tính bảng Asus" alt="Máy tính bảng Asus" />
+                                </a>
+                                <a style="display: none" class="thumbnail" href="#" data-image="/Content/HinhAnhSP/@Model.HinhAnh1" data-zoom-image="/Content/HinhAnhSP/@Model.HinhAnh1" title="Máy tính bảng Asus">
+                                    <img src="/Content/HinhAnhSP/@Model.HinhAnh1" title="Máy tính bảng Asus" alt="Máy tính bảng Asus" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--product status-->
+                <div class="col-2 col-sm-6 product-info-main">
+
+                    <h1 class="product-name">@Model.TenSP</h1>
+
+                    <div class="ratings">
+                        <div class="rating-box">
+                            <div class="rating0">rating</div>
+                        </div>
+                        <!--<p>
+            <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"></a>
+            /
+            <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"></a>
+        </p>-->
+                    </div>
+
+                    <div class="price-box box-special">
+                        <p class="special-price"><span class="price">@Model.DonGia đ</span></p>
+                        @*<p class="old-price"><span class="price">100,000đ</span></p>*@
+                    </div>
+
+
+                    <div class="box-options">
+                        <ul class="list-unstyled">
+                        </ul>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                Thương hiệu:
+                                <a href="apple.html"><span class="ex-text">@Model.NhaSanXuat.TenNSX</span></a>
+                            </li>
+                            <li>Mã sản phẩm: <span class="ex-text">@Model.MaSP</span></li>
+                            <li>Tình trạng: <span class="ex-text">Còn trong kho</span></li>
+                        </ul>
+                    </div>
+                    @using (Html.BeginForm("ThemGioHang", "GioHang", new{@method="post",@MaSP = Model.MaSP, @strURL = Request.Url.ToString()}))
+                    {
+                    <div class="form-group">
+                        @*<label class="control-label" for="input-quantity">Số lượng</label>
+                        <div class="quantity-box">
+                            <input type="button" id="minus" value="-" class="form-control" />
+                            <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
+                            <input type="button" id="plus" value="&#43;" class="form-control" />
+                        </div>*@
+
+                        <input type="hidden" name="product_id" value="59" />
+                        <div style="width: 209px;">
+                            <button style="margin-top: 18px;margin-left: 7px;" type="submit" class="button btn-cart" title="Thêm vào giỏ">
+                                <span><span>Thêm vào giỏ</span></span>
+                            </button>
+                            <button class="button btn-wishlist" type="button" data-toggle="tooltip" title="Thêm vào yêu thích" onclick="wishlist.add('59');">
+                                <i class="icon-heart"></i><span>Thêm vào yêu thích</span>
+                            </button>
+                            <button class="button btn-compare" type="button" data-toggle="tooltip" title="So sánh sản phẩm" onclick="compare.add('59');">
+                                <i class="icon-refresh"></i><span>So sánh sản phẩm</span>
+                            </button>
+                        </div>
+
+                    </div>
+                    }
+                    <div id="product">
+
+
+                    </div>
+
+                    <div class="social-buttons">
+                        <a rel="nofollow" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bigone.exdomain.net/may-tinh-bang-asus" title="Chia sẻ lên Facebook">
+                            <img alt="Chia sẻ lên Facebook" width="25" src="/Content/catalog/view/theme/default/image/social/facebook.png" />
+                        </a>
+                        <a rel="nofollow" target="_blank" href="https://twitter.com/share?text=&amp;url=https://bigone.exdomain.net/may-tinh-bang-asus" title="Chia sẻ lên Twitter">
+                            <img alt="Chia sẻ lên Twitter" width="25" src="/Content/catalog/view/theme/default/image/social/twitter.png" />
+                        </a>
+                        <a rel="nofollow" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://bigone.exdomain.net/may-tinh-bang-asus" title="Chia sẻ lên Linkedin">
+                            <img alt="Chia sẻ lên Linkedin" width="25" src="/Content/catalog/view/theme/default/image/social/linkedin.png" />
+                        </a>
+                        <a rel="nofollow" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://bigone.exdomain.net/may-tinh-bang-asus&amp;media=&amp;description=M%c3%a1y%20t%c3%adnh%20b%e1%ba%a3ng%20Asus" title="Chia sẻ lên Pinterest">
+                            <img alt="Chia sẻ lên Pinterest" width="25" src="/Content/catalog/view/theme/default/image/social/pinterest.png" />
+                        </a>
+                        <a rel="nofollow" target="_blank" href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;to&amp;su=&amp;body=M%c3%a1y%20t%c3%adnh%20b%e1%ba%a3ng%20Asus" title="Chia sẻ lên Gmail">
+                            <img alt="Chia sẻ lên Gmail" width="25" src="/Content/catalog/view/theme/default/image/social/gmail.png" />
+                        </a>
+                        <a rel="nofollow" target="_blank" href="https://web.skype.com/share?url=https://bigone.exdomain.net/may-tinh-bang-asus&amp;lang=vi-VN" title="Chia sẻ lên Skype">
+                            <img alt="Chia sẻ lên Skype" width="25" src="/Content/catalog/view/theme/default/image/social/skype.png" />
+                        </a>
+                        <a rel="nofollow" target="_blank" href="#" title="Chia sẻ lên Zalo">
+                            <img alt="Chia sẻ lên Zalo" width="25" src="/Content/catalog/view/theme/default/image/social/zalo.png" />
+                        </a>
+                    </div>
+                    <style type="text/css">
+                        .social-buttons {
+                            display: block;
+                            width: 100%;
+                        }
+
+                            .social-buttons a {
+                                display: inline-block;
+                                border-radius: 5px;
+                            }
+                    </style>
+                </div>
+            </div>
+            <div class="col-3 product-info-detailed">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab-description" data-toggle="tab">Mô tả</a></li>
+                    @*<li><a href="#tab-review" data-toggle="tab">Đánh giá (0)</a></li>*@
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab-description">
+                        <p>@Html.Raw(Model.MoTa)</p>
+                    </div>
+                    @*<div class="tab-pane" id="tab-review">
+                        <form class="form-horizontal" id="form-review">
+                            <div id="review">
+                                <p>Không có đánh giá nào cho sản phẩm này.</p>
+                            </div>
+                            <h2>Viết đánh giá</h2>
+                            <div class="form-group required">
+                                <div class="col-sm-12">
+                                    <label class="control-label"
+                                           for="input-name">Họ tên</label>
+                                    <input type="text" name="name" value=""
+                                           id="input-name" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <div class="col-sm-12">
+                                    <label class="control-label" for="input-review">Nội dung đánh giá</label>
+                                    <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
+                                    <div class="help-block"><span class="text-danger">Chú ý:</span> Không sử dụng các định dạng HTML!</div>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <div class="col-sm-12">
+                                    <label class="control-label">Xếp hạng</label>
+                                    &nbsp;&nbsp;&nbsp; Chưa tốt&nbsp;
+                                    <input type="radio" name="rating" value="1" />
+                                    &nbsp;
+                                    <input type="radio" name="rating" value="2" />
+                                    &nbsp;
+                                    <input type="radio" name="rating" value="3" />
+                                    &nbsp;
+                                    <input type="radio" name="rating" value="4" />
+                                    &nbsp;
+                                    <input type="radio" name="rating" value="5" />
+                                    &nbsp;Tốt
+                                </div>
+                            </div>
+                            <div class="buttons clearfix">
+                                <div class="pull-right">
+                                    <button type="button" id="button-review" data-loading-text="Đang tải..." class="btn btn-primary">
+                                        Tiếp tục
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>*@
+                </div>
+            </div>
+
+            <hr />
+            <div class="fb-comments" data-href="https://bigone.exdomain.net/may-tinh-bang-asus" data-width="100%" data-numposts="5"></div>
+
+            <div class="col-4">
+
+                <div class="related-product-container quickview-add module-nav2 box-module module-style1">
+                    <div class="group-title">
+                        <h2>
+                            <span> Sản </span><span class='word2'> phẩm </span><span class='word2'> Liên quan </span>
+                        </h2>
+                    </div>
+
+                    <div class="owl-container">
+                        <div class="related-product ">
+                            <div class="row_items">
+
+                                <div class="item col-sm-20">
+                                    <div class="item-inner">
+                                        <div class="label-pro-sale">
+                                            <span>-40%</span>
+                                        </div>
+                                        <div class="images-container">
+                                            <a class="product-image" href="tay-cam-dualshock-4-steel-black.html">
+                                                <img src="/Content/image/cache/catalog/san-pham/product-3-600x600.jpg" alt="Tay cầm DUALSHOCK 4 - Steel Black" />
+                                            </a>
+                                            <div class="quick-view"></div>
+                                        </div><!--images-container-->
+                                        <div class="des-container">
+                                            <h2 class="product-name"><a href="tay-cam-dualshock-4-steel-black.html">Tay cầm DUALSHOCK 4 - Steel Black</a></h2>
+
+                                            <div class="ratings">
+                                                <div class="rating-box">
+                                                    <div class="rating5">rating</div>
+                                                </div>
+                                            </div>
+                                            <div class="actions">
+                                                <button class="button btn-cart" type="button" data-toggle="tooltip" title="Thêm vào giỏ" onclick="cart.add('57');">
+                                                    <span><span>Thêm vào giỏ</span></span>
+                                                </button>
+                                                <ul class="add-to-links">
+                                                    <li class="icon-cart">
+                                                        <a class="link-cart fa fa-shopping-basket" title="Thêm vào giỏ" data-toggle="tooltip" onclick="cart.add('57');">
+                                                            <em>Thêm vào giỏ</em>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="link-wishlist fa fa-heart" title="Thêm vào yêu thích" data-toggle="tooltip" onclick="wishlist.add('57');">
+                                                            <em>Thêm vào yêu thích</em>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="link-compare fa fa-signal" title="So sánh sản phẩm" data-toggle="tooltip" onclick="compare.add('57');">
+                                                            <em>So sánh sản phẩm</em>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div><!-- actions -->
+                                            <div class="price-box box-special">
+                                                <p class="special-price"><span class="price">60,000đ</span></p>
+                                                <p class="old-price"><span class="price">100,000đ</span></p>
+                                            </div>
+                                        </div><!--des-container-->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('select[name=\'recurring_id\'], input[name="quantity"]').change(function () {
+        $.ajax({
+            url: '/product/product/getRecurringDescription',
+            type: 'post',
+            data: $('input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
+            dataType: 'json',
+            beforeSend: function () {
+                $('#recurring-description').html('');
+            },
+            success: function (json) {
+                $('.alert, .text-danger').remove();
+
+                if (json['success']) {
+                    $('#recurring-description').html(json['success']);
+                }
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+    $('#button-cart').on('click', function () {
+        $.ajax({
+            url: '/checkout/cart/add',
+            type: 'post',
+            data: $('input[name=\'product_id\'], #input-quantity, #product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+            dataType: 'json',
+            beforeSend: function () {
+                $('#button-cart').button('loading');
+            },
+            complete: function () {
+                $('#button-cart').button('reset');
+            },
+            success: function (json) {
+                $('.alert, .text-danger').remove();
+                $('.form-group').removeClass('has-error');
+
+                if (json['error']) {
+                    if (json['error']['option']) {
+                        for (i in json['error']['option']) {
+                            var element = $('#input-option' + i.replace('_', '-'));
+
+                            if (element.parent().hasClass('input-group')) {
+                                element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+                            } else {
+                                element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+                            }
+                        }
+                    }
+
+                    if (json['error']['recurring']) {
+                        $('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+                    }
+
+                    /* Highlight any found errors */
+                    $('.text-danger').parent().addClass('has-error');
+                }
+
+                if (json['success']) {
+                    $('body').before('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+                    $('#cart-total .item-cart').html(json['number']);
+
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+
+                    $('#cart > ul').load('/common/cart/info ul li');
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+    $('.date').datetimepicker({
+        pickTime: false
+    });
+
+    $('.datetime').datetimepicker({
+        pickDate: true,
+        pickTime: true
+    });
+
+    $('.time').datetimepicker({
+        pickDate: false
+    });
+
+    $('button[id^=\'button-upload\']').on('click', function () {
+        var node = this;
+
+        $('#form-upload').remove();
+
+        $('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+        $('#form-upload input[name=\'file\']').trigger('click');
+
+        if (typeof timer != 'undefined') {
+            clearInterval(timer);
+        }
+
+        timer = setInterval(function () {
+            if ($('#form-upload input[name=\'file\']').val() != '') {
+                clearInterval(timer);
+
+                $.ajax({
+                    url: '/tool/upload',
+                    type: 'post',
+                    dataType: 'json',
+                    data: new FormData($('#form-upload')[0]),
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    beforeSend: function () {
+                        $(node).button('loading');
+                    },
+                    complete: function () {
+                        $(node).button('reset');
+                    },
+                    success: function (json) {
+                        $('.text-danger').remove();
+
+                        if (json['error']) {
+                            $(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+                        }
+
+                        if (json['success']) {
+                            alert(json['success']);
+
+                            $(node).parent().find('input').val(json['code']);
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+            }
+        }, 500);
+    });
+</script>
+<script type="text/javascript">
+    var id_review = $('#review');
+    id_review.delegate('.pagination a', 'click', function (e) {
+        e.preventDefault();
+
+        id_review.fadeOut('slow');
+
+        id_review.load(this.href);
+
+        id_review.fadeIn('slow');
+    });
+
+    $('#button-review').on('click', function () {
+        $.ajax({
+            url: '/product/product/write?product_id=59',
+            type: 'post',
+            dataType: 'json',
+            data: $("#form-review").serialize(),
+            beforeSend: function () {
+                $('#button-review').button('loading');
+            },
+            complete: function () {
+                $('#button-review').button('reset');
+            },
+            success: function (json) {
+                $('.alert-success, .alert-danger').remove();
+
+                if (json['error']) {
+                    id_review.after('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+                }
+
+                if (json['success']) {
+                    id_review.after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+
+                    $('input[name=\'name\']').val('');
+                    $('textarea[name=\'text\']').val('');
+                    $('input[name=\'rating\']:checked').prop('checked', false);
+                }
+            }
+        });
+    });
+
+</script>
+<!--custom-->
+<script>
+    var input_quantity = $("#input-quantity");
+
+    var minimum = 1;
+    input_quantity.change(function () {
+        if ($(this).val() < minimum) {
+            alert("Minimum Quantity: " + minimum);
+            input_quantity.val(minimum);
+        }
+    });
+
+    /* increase number of product */
+    function minus(minimum) {
+        var currentval = parseInt(input_quantity.val());
+        input_quantity.val(currentval - 1);
+        if (input_quantity.val() <= 0 || input_quantity.val() < minimum) {
+            alert("Minimum Quantity: " + minimum);
+            input_quantity.val(minimum);
+        }
+    }
+
+    /* decrease of product */
+    function plus() {
+        var currentval = parseInt(input_quantity.val());
+        input_quantity.val(currentval + 1);
+    }
+
+    $('#minus').click(function () {
+        minus(minimum);
+    });
+    $('#plus').click(function () {
+        plus();
+    });
+
+    /* zoom */
+    $(".thumbnails img").elevateZoom({
+        zoomType: "window",
+        cursor: "crosshair",
+        gallery: 'gallery_01',
+        galleryActiveClass: "active",
+        imageCrossfade: true,
+        responsive: true,
+        zoomWindowOffetx: 0,
+        zoomWindowOffety: 0
+    });
+    /* slider */
+    $(".image-additional").owlCarousel({
+        navigation: true,
+        pagination: false,
+        slideSpeed: 500,
+        lazyLoad: true,
+        goToFirstSpeed: 1500,
+        addClassActive: true,
+        items: 4,
+        itemsDesktop: [1199, 3],
+        itemsDesktopSmall: [1024, 3],
+        itemsTablet: [640, 3],
+        itemsMobile: [480, 3],
+
+        afterInit: function () {
+            $('#gallery_01 .owl-wrapper .owl-item:first-child').addClass('active');
+        },
+        beforeInit: function () {
+            $(".image-additional .thumbnail").show();
+        }
+    });
+    $('#gallery_01 .owl-item .thumbnail:first').addClass('active2');
+    $('#gallery_01 .owl-item .thumbnail').each(function () {
+        $(this).click(function () {
+            $('#gallery_01 .owl-item').removeClass('active2');
+            $(this).parent().addClass('active2');
+        });
+    });
+    /* related products */
+    $(".related-product").owlCarousel({
+        navigation: true,
+        pagination: false,
+        addClassActive: true,
+        lazyLoad: true,
+        slideSpeed: 500,
+        goToFirstSpeed: 1500,
+        items: '5',
+        itemsDesktop: [1199, 4],
+        itemsDesktopSmall: [991, 3],
+        itemsTablet: [767, 2],
+        itemsMobile: [479, 1],
+
+        afterInit: function () {
+            this.$owlItems.removeClass('first');
+            this.$owlItems.removeClass('last');
+            this.$owlItems.eq(this.currentItem).addClass('first');
+            this.$owlItems.eq(this.currentItem + (this.owl.visibleItems.length - 1)).addClass('last');
+        },
+        afterAction: function (el) {
+            this.$owlItems.removeClass('first');
+            this.$owlItems.removeClass('last');
+            this.$owlItems.eq(this.currentItem).addClass('first');
+            this.$owlItems.eq(this.currentItem + (this.owl.visibleItems.length - 1)).addClass('last');
+        }
+    });
+    $(".related-product .item").removeClass('col-sm-20');
+</script>
