@@ -360,21 +360,21 @@
                                     <div id="pt_ver_menu64" class="pt_ver_menu nav-64 pt_ver_menu_no_child">
                                         <div class="parentMenu">
                                            
-                                            <a href="/SanPham/Danhmucsp/?MaLoaiSP=1">
+                                            <a href="/SanPham/Sanpham/?MaLoaiSP=1">
                                                 <span>Điện thoại và máy tính bảng</span>
                                             </a>
                                         </div>
                                     </div>
                                     <div id="pt_ver_menu68" class="pt_ver_menu nav-68 pt_ver_menu_no_child">
                                         <div class="parentMenu">
-                                            <a href="/SanPham/Danhmucsp/?MaLoaiSP=2">
+                                            <a href="/SanPham/Sanpham/?MaLoaiSP=2">
                                                 <span>Máy tính và laptop</span>
                                             </a>
                                         </div>
                                     </div>
                                     @*<div id="pt_ver_menu71" class="pt_ver_menu nav-71 had-child">
                                         <div class="parentMenu">
-                                            <a href="/SanPham/Danhmucsp">
+                                            <a href="/SanPham/Sanpham">
                                                 <span>Nội thất</span>
                                             </a>
                                         </div>
@@ -385,7 +385,7 @@
                                                     <div class="block1" id="v_block171">
                                                         <div class="column last col1">
                                                             <div class="itemMenu level1">
-                                                                <a class="itemMenuName level0 act nochild" href="/SanPham/Danhmucsp">
+                                                                <a class="itemMenuName level0 act nochild" href="/SanPham/Sanpham">
                                                                     <span>Đồ dùng nhà bếp</span>
                                                                 </a>
                                                             </div>
@@ -398,42 +398,42 @@
                                     </div>*@
                                     <div id="pt_ver_menu59" class="pt_ver_menu nav-59 pt_ver_menu_no_child">
                                         <div class="parentMenu">
-                                            <a href="/SanPham/Danhmucsp/?MaLoaiSP=3">
+                                            <a href="/SanPham/Sanpham/?MaLoaiSP=3">
                                                 <span>Phụ kiện</span>
                                             </a>
                                         </div>
                                     </div>
                                     <div id="pt_ver_menu70" class="pt_ver_menu nav-70 pt_ver_menu_no_child">
                                         <div class="parentMenu">
-                                            <a href="/SanPham/Danhmucsp/?MaLoaiSP=2">
+                                            <a href="/SanPham/Sanpham/?MaLoaiSP=2">
                                                 <span>Sách và Văn phòng phẩm</span>
                                             </a>
                                         </div>
                                     </div>
                                     <div id="pt_ver_menu62" class="pt_ver_menu nav-62 pt_ver_menu_no_child">
                                         <div class="parentMenu">
-                                            <a href="/SanPham/Danhmucsp/?MaLoaiSP=1">
+                                            <a href="/SanPham/Sanpham/?MaLoaiSP=1">
                                                 <span>Tai nghe</span>
                                             </a>
                                         </div>
                                     </div>
                                     <div id="pt_ver_menu61" class="pt_ver_menu nav-61 pt_ver_menu_no_child">
                                         <div class="parentMenu">
-                                            <a href="/SanPham/Danhmucsp/?MaLoaiSP=2">
+                                            <a href="/SanPham/Sanpham/?MaLoaiSP=2">
                                                 <span>Tay cầm chơi game</span>
                                             </a>
                                         </div>
                                     </div>
                                     <div id="pt_ver_menu69" class="pt_ver_menu nav-69 pt_ver_menu_no_child">
                                         <div class="parentMenu">
-                                            <a href="/SanPham/Danhmucsp">
+                                            <a href="/SanPham/Sanpham">
                                                 <span>Thời trang</span>
                                             </a>
                                         </div>
                                     </div>
                                     <div id="pt_ver_menu63" class="pt_ver_menu nav-63 pt_ver_menu_no_child">
                                         <div class="parentMenu">
-                                            <a href="/SanPham/Danhmucsp/?MaLoaiSP=3">
+                                            <a href="/SanPham/Sanpham/?MaLoaiSP=3">
                                                 <span>Camera</span>
                                             </a>
                                         </div>
@@ -450,32 +450,36 @@
                 <div class="col col-search">
                     <div class="top-search">
                         <div id="search-by-category">
-                            <div class="search-container">
-                                <input type="text" name="search" id="text-search" value="" placeholder="Tìm kiếm" class="" />
-                                <div class="categories-container">
-                                    <div class="hover-cate">
-                                        <p><span class="cate-selected" data-value="0">Tất cả</span><i class="fa fa-caret-down"></i></p>
-                                        <ul class="cate-items">
-                                            <li class="item-cate" data-value="0">Tất cả</li>
-                                            <li data-value="64" class="item-cate">Camera</li>
-                                            <li data-value="68" class="item-cate">Máy tính và laptop</li>
-                                            <li data-value="71" class="item-cate">Nội thất</li>
-                                            <li data-value="72" class="item-cate f1">Đồ dùng nhà bếp</li>
-                                            <li data-value="59" class="item-cate">Phụ kiện</li>
-                                            <li data-value="70" class="item-cate">Sách và Văn phòng phẩm</li>
-                                            <li data-value="62" class="item-cate">Tai nghe</li>
-                                            <li data-value="61" class="item-cate">Tay cầm chơi game</li>
-                                            <li data-value="69" class="item-cate">Thời trang</li>
-                                            <li data-value="63" class="item-cate">Điện thoại và máy tính bảng</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                            @using (Html.BeginForm("KQTimKiem", "TimKiem"))
+                            {
+                                <div class="search-container">
 
-                            </div>
-                            <div id="sp-btn-search" class="">
-                                <button type="button" id="btn-search-category" class="btn btn-default btn-lg">
-                                </button>
-                            </div>
+                                    <input type="text" name="sTuKhoa" id="text-search" value="" placeholder="Tìm kiếm" />
+                                    <div class="categories-container">
+                                        <div class="hover-cate">
+                                            <p><span class="cate-selected" data-value="0">Tất cả</span><i class="fa fa-caret-down"></i></p>
+                                            <ul class="cate-items">
+                                                <li class="item-cate" data-value="0">Tất cả</li>
+                                                <li data-value="64" class="item-cate">Camera</li>
+                                                <li data-value="68" class="item-cate">Máy tính và laptop</li>
+                                                <li data-value="71" class="item-cate">Nội thất</li>
+                                                <li data-value="72" class="item-cate f1">Đồ dùng nhà bếp</li>
+                                                <li data-value="59" class="item-cate">Phụ kiện</li>
+                                                <li data-value="70" class="item-cate">Sách và Văn phòng phẩm</li>
+                                                <li data-value="62" class="item-cate">Tai nghe</li>
+                                                <li data-value="61" class="item-cate">Tay cầm chơi game</li>
+                                                <li data-value="69" class="item-cate">Thời trang</li>
+                                                <li data-value="63" class="item-cate">Điện thoại và máy tính bảng</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div id="sp-btn-search" class="">
+                                    <button type="submit" id="btn-search-category" class="btn btn-default btn-lg">
+                                    </button>
+                                </div>
+                            }
                         </div>
                     </div>
                     <div class="box-cart">

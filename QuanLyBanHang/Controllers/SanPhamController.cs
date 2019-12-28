@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using QuanLyBanHang.Models;
 
 namespace QuanLyBanHang.Controllers
@@ -32,10 +33,45 @@ namespace QuanLyBanHang.Controllers
             return View(sp);
         }
 
-        public ActionResult Danhmucsp(int MaLoaiSP)
+        public ActionResult Danhmucsp(int? MaLoaiSP, int? page)
         {
             ViewBag.MaLoaiSP = MaLoaiSP;
-            return View(db.SanPhams.Where(n => n.DaXoa == false&&n.MaLoaiSP==MaLoaiSP));
+            var lstSP = db.SanPhams.Where(n => n.DaXoa == false && n.MaLoaiSP == MaLoaiSP);
+            if (lstSP.Count() == 0)
+            {
+                return HttpNotFound();
+            }
+            //Thực hiện chức năng phân trang
+            if (Request.HttpMethod != "GET")
+            {
+                page = 1;
+            }
+            //Tạo biến số sp trên trang
+            int PageSize = 8;
+            //Tạo biến thứ 2 : Số trang hiện tại
+            int PageNumber = (page ?? 1);
+            ViewBag.MaLoaiSP = MaLoaiSP;
+            return View(lstSP.OrderBy(n => n.MaSP).ToPagedList(PageNumber, PageSize));
+        }
+        public ActionResult SanPham(int? MaLoaiSP, int? page)
+        {
+            ViewBag.MaLoaiSP = MaLoaiSP;
+            var lstSP = db.SanPhams.Where(n => n.DaXoa == false && n.MaLoaiSP == MaLoaiSP);
+            if (lstSP.Count() == 0)
+            {
+                return HttpNotFound();
+            }
+            //Thực hiện chức năng phân trang
+            if (Request.HttpMethod != "GET")
+            {
+                page = 1;
+            }
+            //Tạo biến số sp trên trang
+            int PageSize = 8;
+            //Tạo biến thứ 2 : Số trang hiện tại
+            int PageNumber = (page ?? 1);
+            ViewBag.MaLoaiSP = MaLoaiSP;
+            return View(lstSP.OrderBy(n => n.MaSP).ToPagedList(PageNumber, PageSize));
         }
     }
 }

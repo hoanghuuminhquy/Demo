@@ -1,0 +1,380 @@
+﻿@using QuanLyBanHang.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<SanPham>
+@{
+    ViewBag.Title = "SanPham";
+    Layout = "~/Views/Shared/_ShopBanHang.cshtml";
+}
+
+@section scripts{
+    <style>
+        .common-home .breadcrumbs {
+            display: block;
+        }
+
+        .item-inner .actions button.btn-cart {
+            float: left;
+            padding: 0 20px;
+        }
+    </style>
+
+}
+<div class="container layer-category">
+    <div class="layered-navigation-block"></div>
+    <ul class="breadcrumb">
+        <li><a href="index.html"><i class="fa fa-home"></i> Trang chủ</a></li>
+        <li><a href="camera.html">Camera</a></li>
+    </ul>
+    <div class="row">
+        <div class="col-order">
+            <aside id="column-left" class="col-sm-3">
+                <div class="row">
+                    <div class="col-sm-12 ">
+                        <div class="layernavigation-module product_category">
+                            <div class="panel panel-default">
+                                <div class="layered-heading module-title"><h2>Danh mục</h2></div>
+                                <div class="layered">
+                                    <div class="list-group">
+                                        <div class="filter-attribute-container">
+                                            <label>
+                                                <a href="/SanPham/Sanpham/?MaLoaiSP=1" class="active">
+                                                    Điện thoại và máy tính bảng (8)
+                                                </a>
+                                            </label>
+
+                                        </div>
+                                        <div class="filter-attribute-container">
+                                            <label>
+                                                <a href="/SanPham/Sanpham/?MaLoaiSP=2" class="">
+                                                    Máy tính và laptop (8)
+                                                </a>
+                                            </label>
+
+                                        </div>
+                                        @*<div class="filter-attribute-container">
+                                                <label>
+                                                    <a href="/SanPham/Sanpham/?MaLoaiSP=3" class="">
+                                                        Nội thất (8)
+                                                    </a>
+                                                </label>
+
+                                                <div class="list-group-item">
+                                                    <div class="">
+                                                        <a href="#" class="a-filter add-filter">
+                                                            &nbsp;&nbsp;&nbsp;- Đồ dùng nhà bếp (8)
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>*@
+                                        <div class="filter-attribute-container">
+                                            <label>
+                                                <a href="/SanPham/Sanpham/?MaLoaiSP=3" class="">
+                                                    Phụ kiện (8)
+                                                </a>
+                                            </label>
+
+                                        </div>
+                                        <div class="filter-attribute-container">
+                                            <label>
+                                                <a href="/SanPham/Sanpham/?MaLoaiSP=2" class="">
+                                                    Sách và Văn phòng phẩm (8)
+                                                </a>
+                                            </label>
+
+                                        </div>
+                                        <div class="filter-attribute-container">
+                                            <label>
+                                                <a href="/SanPham/Sanpham/?MaLoaiSP=1" class="">
+                                                    Tai nghe (8)
+                                                </a>
+                                            </label>
+
+                                        </div>
+                                        <div class="filter-attribute-container">
+                                            <label>
+                                                <a href="/SanPham/Sanpham/?MaLoaiSP=2" class="">
+                                                    Tay cầm chơi game (8)
+                                                </a>
+                                            </label>
+
+                                        </div>
+                                        <div class="filter-attribute-container">
+                                            <label>
+                                                <a href="/SanPham/Sanpham/?MaLoaiSP=3" class="">
+                                                    Thời trang (8)
+                                                </a>
+                                            </label>
+
+                                        </div>
+                                        <div class="filter-attribute-container">
+                                            <label>
+                                                <a href="/SanPham/Sanpham/?MaLoaiSP=1" class="">
+                                                    camera
+                                                </a>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<div class="col-sm-12 " id="filter-0">
+                            <div class="layernavigation-module product_category">
+                                <div class="panel panel-default">
+                                    <div class="layered-heading module-title"><h2>Lọc sản phẩm</h2></div>
+
+                                    <form name="filter_form" method="post" action="#" class="layered">
+                                        <div class="list-group">
+
+
+                                            <div class="filter-attribute-container">
+                                                <label>Thương hiệu</label>
+                                                <div class="list-group-item">
+                                                    <div id="filter-group-price">
+                                                        <div class="checkbox a-filter add-filter">
+                                                            <label>
+                                                                <input type="checkbox" name="manufacturer[]" value="5" onclick="loadFilter()" />
+                                                                HTC
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox a-filter add-filter">
+                                                            <label>
+                                                                <input type="checkbox" name="manufacturer[]" value="10" onclick="loadFilter()" />
+                                                                Sony
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox a-filter add-filter">
+                                                            <label>
+                                                                <input type="checkbox" name="manufacturer[]" value="9" onclick="loadFilter()" />
+                                                                Canon
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox a-filter add-filter">
+                                                            <label>
+                                                                <input type="checkbox" name="manufacturer[]" value="8" onclick="loadFilter()" />
+                                                                Apple
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox a-filter add-filter">
+                                                            <label>
+                                                                <input type="checkbox" name="manufacturer[]" value="7" onclick="loadFilter()" />
+                                                                Hp
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox a-filter add-filter">
+                                                            <label>
+                                                                <input type="checkbox" name="manufacturer[]" value="6" onclick="loadFilter()" />
+                                                                Palm
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="panel-footer text-right hidden">
+                                            <button type="button" id="button-filter" class="btn btn-primary"></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            function loadFilter() {
+                                var url = 'Danhmucsp';
+                                var arr = [];
+
+                                var price = $('input[name^=\'price\']:checked').val();
+                                if (price != null) {
+                                    arr.push('price_filter=' + price);
+                                }
+
+                                var manufacturer = [];
+                                $('input[name^=\'manufacturer\']:checked').each(function (element) {
+                                    manufacturer.push(this.value);
+                                });
+
+                                if (manufacturer.length != 0) {
+                                    arr.push('manufacturer_filter=' + manufacturer.join(','));
+                                }
+
+                                var option = [];
+                                $('input[name^=\'option\']:checked').each(function (element) {
+                                    option.push(this.value);
+                                });
+
+                                if (option.length != 0) {
+                                    arr.push('option_filter=' + option.join(','));
+                                }
+
+                                if (arr.length > 0) {
+                                    var path = arr.join('&');
+                                    location = (url.indexOf('?') >= 0) ? url + '&' + path : url + '?' + path;
+                                }
+                            }
+                        </script>*@
+                    <div class="sub-col col-sm-12">
+                        <div class="banner-static static-top-bigone1">
+                            <div class="owl-container">
+                                <div id="static_top_bigone289238651">
+                                    <div class="col ">
+                                        <div class="image">
+                                            <a href="javascript:void(0)" target="_self">
+                                                <img src="/Content/image/cache/catalog/banner/img-static-sidebar-270x428.jpg" alt="Samsung second Generation">
+                                                <span class="text">
+                                                    <span class="text1">Samsung second Generation</span>
+                                                    <span class="text2">Sale up to</span>
+                                                    <span class="text3"><strong>$399.00</strong></span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <div id="content" class="col-sm-9">
+                <div class="category-info">
+                    <h2 class="category-name">Camera</h2>
+                </div>
+
+                <div class="custom-category ">
+                    <!--products filter-->
+                    <div class="link-compare"><a href="#" id="compare-total">So sánh sản phẩm (0)</a></div>
+                    <div class="toolbar toolbar-products">
+                        <div class="modes">
+                            <div class="btn-group">
+                                <button type="button" id="grid-view" class="btn" data-toggle="tooltip" title="Lưới">
+                                    <i class="fa fa-th"></i>
+                                </button>
+                                <button type="button" id="list-view" class="btn" data-toggle="tooltip" title="Danh sách">
+                                    <i class="fa fa-th-list"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="toolbar-amount"><span></span></div>
+
+                        <div class="sorter">
+                            <label>Sắp xếp theo: </label>
+                            <select id="input-sort" class="form-control" onchange="location = this.value;">
+                                <option value="https://bigone.exdomain.net/camera?sort=p.date_added&amp;order=DESC" selected="selected">Mặc định</option>
+                                <option value="Danhmucsp?sort=pd.name&amp;order=ASC">Tên (A - Z)</option>
+                                <option value="Danhmucsp?sort=pd.name&amp;order=DESC">Tên (Z - A)</option>
+                                <option value="Danhmucsp?sort=p.price&amp;order=ASC">Giá (Thấp &gt; Cao)</option>
+                                <option value="Danhmucsp?sort=p.price&amp;order=DESC">Giá (Cao &gt; Thấp)</option>
+                                <option value="Danhmucsp?sort=rating&amp;order=DESC">Đánh giá (Cao nhất)</option>
+                                <option value="Danhmucsp?sort=rating&amp;order=ASC">Đánh giá (Thấp nhất)</option>
+                                <option value="Danhmucsp?sort=p.model&amp;order=ASC">Dòng sản phẩm (A - Z)</option>
+                                <option value="Danhmucsp?sort=p.model&amp;order=DESC">Dòng sản phẩm (Z - A)</option>
+                            </select>
+                        </div>
+                        <div class="limiter">
+                            <label>Hiển thị: </label>
+                            <select id="input-limit" class="form-control" onchange="location = this.value;">
+                                <option value="Danhmucsp?limit=12" selected="selected">12</option>
+                                <option value="Danhmucsp?limit=24">24</option>
+                                <option value="Danhmucsp?limit=36">36</option>
+                                <option value="Danhmucsp?limit=48">48</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--product list-->
+                    <div class="custom-products quickview-add">
+
+                        @foreach (var item in Model.OrderBy(n => n.DonGia))
+                        {
+                            <div class="product-layout product-grid module-style1 col-lg-3 col-md-4 col-sm-6 col-xs-6 category">
+
+                                <div class="item item0">
+                                    <div class="item-inner">
+                                        <div class="col-image">
+                                            <div class="images-container">
+                                                <div class="label-pro-sale">
+                                                    <span>-40%</span>
+                                                </div>
+                                                <a href="/SanPham/Chitietsp">
+                                                    <img src="/Content/HinhAnhSP/@item.HinhAnh" alt="@item.TenSP" title="@item.TenSP" class="img-responsive lazy" style="width:212px;height:150px" />
+                                                </a>
+                                                <div class="quick-view"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-des">
+                                            <div class="des-container">
+                                                <h2 class="product-name"><a href="@Url.Action("Chitietsp","SanPham",new { @id=item.MaSP,@tensp=item.TenSP})">@item.TenSP</a></h2>
+
+                                                <div class="ratings">
+                                                    <div class="rating-box">
+                                                        <div class="rating5">rating</div>
+                                                    </div>
+                                                </div>
+                                                <div class="price-box box-special">
+                                                    <p class="special-price"><span class="price">@item.DonGia đ</span></p>
+                                                    <p class="old-price"><span class="price">@item.DonGia đ</span></p>
+                                                </div>
+
+                                                @*<p class="product-des">Bảo hành 1 năm 1 đổi 1. Sản phẩm chính hãng của Sony.Dải tần rộng tạo âm cao và trầm rõ ràng, chi tiết.Âm bass khỏe và ấm cho chất lượng âm thanh trung thực.Đệm tai nghe mỏng tai và êm.Khớp điều chỉnh kích thước giúp vừa vặn khi đeo.Có nút nhận cuộc&#8230;</p>*@
+
+                                                <div class="actions">
+                                                    <a href="@Url.Action("ThemGioHang","GioHang",new { @MaSP = item.MaSP, @strURL = Request.Url.ToString()})" class="button btn-cart" title="Thêm vào giỏ">
+                                                        <span><span>Thêm vào giỏ</span></span>
+                                                    </a>
+
+                                                    <ul class="add-to-links">
+                                                        <li>
+                                                            <a class="link-wishlist fa fa-heart" title="Thêm vào yêu thích" data-toggle="tooltip" onclick="wishlist.add('60');">
+                                                                <em>Thêm vào yêu thích</em>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="link-compare fa fa-signal" title="So sánh sản phẩm" data-toggle="tooltip" onclick="compare.add('60');">
+                                                                <em>So sánh sản phẩm</em>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        }
+
+                    </div>
+
+                    <!--pagination-->
+                    <div class="toolbar toolbar-products toolbar-bottom">
+                        <div class="toolbar-amount"><span> Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount</span></div>
+                        <div class="pages"> @Html.PagedListPager(Model, page => Url.Action("SanPham", new { @page = page, @MaLoaiSP = ViewBag.MaLoaiSP }))</div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var html = '';
+        html += '<a class="" href="';
+        html += "#";
+        html += '" target="';
+        html += "_self";
+        html += '"><img class="" src="';
+        html += "/Content/image/cache/catalog/banner/payment-364x32.png";
+        html += '" alt="';
+        html += "payment";
+        html += '" /></a>';
+
+        $('footer .footer-top .footer-payment').append(html);
+    });
+</script>
+
+

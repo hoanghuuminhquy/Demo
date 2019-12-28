@@ -1,4 +1,6 @@
-﻿@model IEnumerable<QuanLyBanHang.Models.SanPham>
+﻿@using QuanLyBanHang.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<SanPham>
 @{
     ViewBag.Title = "Danhmucsp";
     Layout = "~/Views/Shared/_ShopBanHang.cshtml";
@@ -49,20 +51,20 @@
 
                                         </div>
                                         @*<div class="filter-attribute-container">
-                                            <label>
-                                                <a href="/SanPham/Danhmucsp/?MaLoaiSP=3" class="">
-                                                    Nội thất (8)
-                                                </a>
-                                            </label>
-
-                                            <div class="list-group-item">
-                                                <div class="">
-                                                    <a href="#" class="a-filter add-filter">
-                                                        &nbsp;&nbsp;&nbsp;- Đồ dùng nhà bếp (8)
+                                                <label>
+                                                    <a href="/SanPham/Danhmucsp/?MaLoaiSP=3" class="">
+                                                        Nội thất (8)
                                                     </a>
+                                                </label>
+
+                                                <div class="list-group-item">
+                                                    <div class="">
+                                                        <a href="#" class="a-filter add-filter">
+                                                            &nbsp;&nbsp;&nbsp;- Đồ dùng nhà bếp (8)
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>*@
+                                            </div>*@
                                         <div class="filter-attribute-container">
                                             <label>
                                                 <a href="/SanPham/Danhmucsp/?MaLoaiSP=3" class="">
@@ -118,100 +120,100 @@
                     </div>
 
                     @*<div class="col-sm-12 " id="filter-0">
-                        <div class="layernavigation-module product_category">
-                            <div class="panel panel-default">
-                                <div class="layered-heading module-title"><h2>Lọc sản phẩm</h2></div>
+                            <div class="layernavigation-module product_category">
+                                <div class="panel panel-default">
+                                    <div class="layered-heading module-title"><h2>Lọc sản phẩm</h2></div>
 
-                                <form name="filter_form" method="post" action="#" class="layered">
-                                    <div class="list-group">
+                                    <form name="filter_form" method="post" action="#" class="layered">
+                                        <div class="list-group">
 
 
-                                        <div class="filter-attribute-container">
-                                            <label>Thương hiệu</label>
-                                            <div class="list-group-item">
-                                                <div id="filter-group-price">
-                                                    <div class="checkbox a-filter add-filter">
-                                                        <label>
-                                                            <input type="checkbox" name="manufacturer[]" value="5" onclick="loadFilter()" />
-                                                            HTC
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox a-filter add-filter">
-                                                        <label>
-                                                            <input type="checkbox" name="manufacturer[]" value="10" onclick="loadFilter()" />
-                                                            Sony
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox a-filter add-filter">
-                                                        <label>
-                                                            <input type="checkbox" name="manufacturer[]" value="9" onclick="loadFilter()" />
-                                                            Canon
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox a-filter add-filter">
-                                                        <label>
-                                                            <input type="checkbox" name="manufacturer[]" value="8" onclick="loadFilter()" />
-                                                            Apple
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox a-filter add-filter">
-                                                        <label>
-                                                            <input type="checkbox" name="manufacturer[]" value="7" onclick="loadFilter()" />
-                                                            Hp
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox a-filter add-filter">
-                                                        <label>
-                                                            <input type="checkbox" name="manufacturer[]" value="6" onclick="loadFilter()" />
-                                                            Palm
-                                                        </label>
+                                            <div class="filter-attribute-container">
+                                                <label>Thương hiệu</label>
+                                                <div class="list-group-item">
+                                                    <div id="filter-group-price">
+                                                        <div class="checkbox a-filter add-filter">
+                                                            <label>
+                                                                <input type="checkbox" name="manufacturer[]" value="5" onclick="loadFilter()" />
+                                                                HTC
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox a-filter add-filter">
+                                                            <label>
+                                                                <input type="checkbox" name="manufacturer[]" value="10" onclick="loadFilter()" />
+                                                                Sony
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox a-filter add-filter">
+                                                            <label>
+                                                                <input type="checkbox" name="manufacturer[]" value="9" onclick="loadFilter()" />
+                                                                Canon
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox a-filter add-filter">
+                                                            <label>
+                                                                <input type="checkbox" name="manufacturer[]" value="8" onclick="loadFilter()" />
+                                                                Apple
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox a-filter add-filter">
+                                                            <label>
+                                                                <input type="checkbox" name="manufacturer[]" value="7" onclick="loadFilter()" />
+                                                                Hp
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox a-filter add-filter">
+                                                            <label>
+                                                                <input type="checkbox" name="manufacturer[]" value="6" onclick="loadFilter()" />
+                                                                Palm
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                    </div>
-                                    <div class="panel-footer text-right hidden">
-                                        <button type="button" id="button-filter" class="btn btn-primary"></button>
-                                    </div>
-                                </form>
+                                        </div>
+                                        <div class="panel-footer text-right hidden">
+                                            <button type="button" id="button-filter" class="btn btn-primary"></button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <script type="text/javascript">
-                        function loadFilter() {
-                            var url = 'Danhmucsp';
-                            var arr = [];
+                        <script type="text/javascript">
+                            function loadFilter() {
+                                var url = 'Danhmucsp';
+                                var arr = [];
 
-                            var price = $('input[name^=\'price\']:checked').val();
-                            if (price != null) {
-                                arr.push('price_filter=' + price);
+                                var price = $('input[name^=\'price\']:checked').val();
+                                if (price != null) {
+                                    arr.push('price_filter=' + price);
+                                }
+
+                                var manufacturer = [];
+                                $('input[name^=\'manufacturer\']:checked').each(function (element) {
+                                    manufacturer.push(this.value);
+                                });
+
+                                if (manufacturer.length != 0) {
+                                    arr.push('manufacturer_filter=' + manufacturer.join(','));
+                                }
+
+                                var option = [];
+                                $('input[name^=\'option\']:checked').each(function (element) {
+                                    option.push(this.value);
+                                });
+
+                                if (option.length != 0) {
+                                    arr.push('option_filter=' + option.join(','));
+                                }
+
+                                if (arr.length > 0) {
+                                    var path = arr.join('&');
+                                    location = (url.indexOf('?') >= 0) ? url + '&' + path : url + '?' + path;
+                                }
                             }
-
-                            var manufacturer = [];
-                            $('input[name^=\'manufacturer\']:checked').each(function (element) {
-                                manufacturer.push(this.value);
-                            });
-
-                            if (manufacturer.length != 0) {
-                                arr.push('manufacturer_filter=' + manufacturer.join(','));
-                            }
-
-                            var option = [];
-                            $('input[name^=\'option\']:checked').each(function (element) {
-                                option.push(this.value);
-                            });
-
-                            if (option.length != 0) {
-                                arr.push('option_filter=' + option.join(','));
-                            }
-
-                            if (arr.length > 0) {
-                                var path = arr.join('&');
-                                location = (url.indexOf('?') >= 0) ? url + '&' + path : url + '?' + path;
-                            }
-                        }
-                    </script>*@                            
+                        </script>*@
                     <div class="sub-col col-sm-12">
                         <div class="banner-static static-top-bigone1">
                             <div class="owl-container">
@@ -284,7 +286,7 @@
                     <!--product list-->
                     <div class="custom-products quickview-add">
 
-                        @foreach (var item in Model.Take(8))
+                        @foreach (var item in Model.OrderBy(n => n.DonGia))
                         {
                             <div class="product-layout product-grid module-style1 col-lg-3 col-md-4 col-sm-6 col-xs-6 category">
 
@@ -343,13 +345,18 @@
 
                             </div>
                         }
-                 
+
                     </div>
 
                     <!--pagination-->
                     <div class="toolbar toolbar-products toolbar-bottom">
                         <div class="toolbar-amount"><span>Hiển thị 1 đến 8 của 8 (1 trang)</span></div>
                         <div class="pages"></div>
+                    </div>
+                    <div class="dlink">
+                        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                        @{ViewBag.Danhmucsp="Danhmucsp"}
+                        @Html.PagedListPager(Model, page => Url.Action("SanPham", new { @page = page, @MaLoaiSP = ViewBag.MaLoaiSP }))
                     </div>
                 </div>
             </div>
