@@ -13,6 +13,7 @@ namespace QuanLyBanHang.Controllers
     public class QuanLySanPhamController : Controller
     {
         QuanLyBanHangEntities db = new QuanLyBanHangEntities();
+        [Authorize(Roles = "QLSanPham")]
         // GET: QuanLySanPham
         public ActionResult Index()
         {

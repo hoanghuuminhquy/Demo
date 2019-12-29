@@ -1,0 +1,125 @@
+﻿@model IEnumerable<QuanLyBanHang.Models.ThanhVien>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutQuanLyBanHang.cshtml";
+    int i = 1;
+}
+
+    <h2>Quản Lý Thành Viên</h2>
+<!-- start: page -->
+<section class="card">
+    <header class="card-header">
+        <div class="card-actions">
+            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+        </div>
+
+        <h2 class="card-title">Default</h2>
+    </header>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <a href="/QuanLyThanhVien/TaoMoi" class="btn btn-primary">Add <i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-striped mb-0" id="datatable-editable">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TaiKhoan)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MatKhau)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HoTen)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DiaChi)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SoDienThoai)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoaiThanhVien.TenLoai)
+                    </th>
+                    <th>
+                        Chỉnh sửa
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr data-item-id="1" class="d-none">
+                    <td>Trident</td>
+                    <td>
+                        Internet
+                        Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td class="actions">
+                        <a href="#" class="hidden on-editing save-row"><i class="fas fa-save"></i></a>
+                        <a href="#" class="hidden on-editing cancel-row"><i class="fas fa-times"></i></a>
+                        <a href="#" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="#" class="on-default remove-row"><i class="far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+
+
+                @foreach (var item in Model)
+                {
+                    i = i + 1;
+
+            <tr data-item-id="@i">
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaiKhoan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MatKhau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoDienThoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoaiThanhVien.TenLoai)
+                </td>
+                @*<td>
+                @{var cat = item.MoTa.ToString();}
+
+        @Html.Raw(cat.Substring(0, 150))
+
+
+            </td>*@
+
+
+                <td class="actions">
+                    @*<a href="#" class="hidden on-editing save-row"><i class="fas fa-save"></i></a>
+            <a href="#" class="hidden on-editing cancel-row"><i class="fas fa-times"></i></a>*@
+
+                    <i class="fas fa-pencil-alt"></i>
+                    @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { id = item.MaThanhVien })
+                    <i class="far fa-trash-alt"></i>
+                    @Html.ActionLink("Xoá", "Xoa", new { id = item.MaThanhVien })
+                </td>
+            </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+<!-- end: page -->

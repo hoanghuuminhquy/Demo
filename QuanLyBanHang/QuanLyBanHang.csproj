@@ -141,6 +141,7 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuanLySanPhamController.cs" />
+    <Compile Include="Controllers\QuanLyThanhVienController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\ShopBanHangController.cs" />
     <Compile Include="Controllers\ThongKeController.cs" />
@@ -2217,6 +2218,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\SanPham\SanPham.cshtml" />
     <Content Include="Views\TimKiem\KQTimKiem.cshtml" />
+    <Content Include="Views\Home\LoiPhanQuyen.cshtml" />
+    <Content Include="Views\QuanLyThanhVien\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
